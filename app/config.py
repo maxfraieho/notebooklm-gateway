@@ -11,7 +11,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).parent.parent.resolve()
 
 # Server
-PORT = int(os.getenv("PORT", "8000"))
+PORT = int(os.getenv("PORT", "5000"))
 HOST = os.getenv("HOST", "0.0.0.0")
 
 # MinIO / S3

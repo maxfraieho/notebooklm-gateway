@@ -14,3 +14,12 @@ minio==7.2.15
 # Utils
 python-dotenv==1.0.1
 aiofiles==24.1.0
+fastapi
+jinja2
+minio
+notebooklm-py
+playwright
+python-dotenv
+python-multipart
+uvicorn[standard]
+aiofiles
