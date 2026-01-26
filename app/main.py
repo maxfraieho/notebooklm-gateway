@@ -32,6 +32,10 @@ async def lifespan(app: FastAPI):
     # Startup
     logger.info("Starting NotebookLM Backend...")
     config.ensure_dirs()
+    
+    # Sync storage state to library location
+    if config.sync_storage_state():
+        logger.info("Storage state synced to notebooklm-py library path")
 
     # Start background job worker
     jobs.start_worker()

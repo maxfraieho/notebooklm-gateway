@@ -74,7 +74,9 @@ async def upload_storage_state(
     try:
         config.STORAGE_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
         config.STORAGE_STATE_PATH.write_bytes(content)
-        logger.info("storage_state.json saved successfully")
+        # Sync to library location
+        config.sync_storage_state()
+        logger.info("storage_state.json saved and synced successfully")
     except Exception as e:
         logger.error(f"Failed to save storage_state.json: {e}")
         return templates.TemplateResponse(
@@ -133,7 +135,14 @@ async def logout():
     """
     Remove stored credentials.
     """
+    removed = False
     if config.STORAGE_STATE_PATH.exists():
         config.STORAGE_STATE_PATH.unlink()
+        removed = True
+    if config.NOTEBOOKLM_LIBRARY_PATH.exists():
+        config.NOTEBOOKLM_LIBRARY_PATH.unlink()
+        removed = True
+    if removed:
+        logger.info("Credentials removed from both storage locations")
         return {"ok": True, "message": "Logged out successfully"}
     return {"ok": True, "message": "No credentials to remove"}

@@ -60,8 +60,24 @@ JOB_TIMEOUT_SECONDS = int(os.getenv("JOB_TIMEOUT_SECONDS", "120"))  # 2 min per 
 IDEMPOTENCY_TTL_SECONDS = int(os.getenv("IDEMPOTENCY_TTL_SECONDS", "3600"))  # 1 hour
 IDEMPOTENCY_FILE = DATA_DIR / "idempotency.json"
 
+# NotebookLM library expects storage state at this path
+NOTEBOOKLM_LIBRARY_PATH = Path.home() / ".notebooklm" / "storage_state.json"
+
 
 def ensure_dirs():
     """Create required directories if they don't exist."""
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     STORAGE_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+    NOTEBOOKLM_LIBRARY_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+
+def sync_storage_state():
+    """
+    Sync storage_state.json to where notebooklm-py library expects it.
+    The library reads from ~/.notebooklm/storage_state.json by default.
+    """
+    import shutil
+    if STORAGE_STATE_PATH.exists():
+        shutil.copy2(STORAGE_STATE_PATH, NOTEBOOKLM_LIBRARY_PATH)
+        return True
+    return False
