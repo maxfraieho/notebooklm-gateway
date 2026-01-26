@@ -1,0 +1,44 @@
+# Secrets - NEVER commit
+secrets/*
+!secrets/.gitkeep
+*.pem
+*.key
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Data (state files)
+data/*
+!data/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+.eggs/
+*.egg-info/
+*.egg
+.mypy_cache/
+.pytest_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temp
+tmp/
+*.tmp
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
