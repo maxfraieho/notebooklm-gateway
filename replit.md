@@ -60,6 +60,7 @@ Environment variables are configured in `.env.example`. Key settings:
 - `CORS_ALLOW_ORIGINS`: Allowed CORS origins
 
 ## Recent Changes
+- 2026-01-26: Fixed NotebookLM storage state path issue - notebooklm-py library expects file at ~/.notebooklm/storage_state.json, added sync functionality to copy from secrets/ on startup and after upload
 - 2026-01-26: Initial Replit environment setup, configured to run on port 5000
 
 ## User Preferences
