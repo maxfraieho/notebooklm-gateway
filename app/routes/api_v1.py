@@ -1,10 +1,13 @@
 """
 REST API v1 for NotebookLM operations.
 """
+import asyncio
 import logging
+import re
+import uuid
 from pathlib import Path
-from typing import Optional
-from fastapi import APIRouter, Depends
+from typing import Optional, Literal
+from fastapi import APIRouter, Depends, Header
 from pydantic import BaseModel, Field
 
 from app import config
@@ -24,12 +27,50 @@ logger = logging.getLogger(__name__)
 router = APIRouter(prefix="/v1", tags=["api"])
 
 
-# --- Dependency ---
+# --- Dependencies ---
 
 async def require_auth():
     """Dependency that ensures user is authenticated."""
     if not notebooklm_service.is_authenticated():
         raise NotAuthenticatedError()
+
+
+async def require_service_token(authorization: Optional[str] = Header(None)):
+    """
+    Dependency for service-to-service authentication via Bearer token.
+    Used by Worker/external services to call protected endpoints.
+    """
+    if not config.NOTEBOOKLM_SERVICE_TOKEN:
+        raise APIError(
+            code=ErrorCode.NOT_AUTHENTICATED,
+            message="Service token not configured on server",
+            status_code=503,
+        )
+
+    if not authorization:
+        raise APIError(
+            code=ErrorCode.NOT_AUTHENTICATED,
+            message="Authorization header required",
+            status_code=401,
+        )
+
+    if not authorization.startswith("Bearer "):
+        raise APIError(
+            code=ErrorCode.NOT_AUTHENTICATED,
+            message="Invalid authorization format. Use: Bearer <token>",
+            status_code=401,
+        )
+
+    token = authorization[7:]
+    if token != config.NOTEBOOKLM_SERVICE_TOKEN:
+        raise APIError(
+            code=ErrorCode.AUTH_FAILED,
+            message="Invalid service token",
+            status_code=403,
+        )
+
+    if not notebooklm_service.is_authenticated():
+        raise NotAuthenticatedError("NotebookLM storage_state.json not configured")
 
 
 # --- Request/Response Models ---
@@ -403,3 +444,153 @@ async def minio_diagnostics(zone_id: Optional[str] = None):
             bucket=bucket,
             error=str(e),
         )
+
+
+# --- Service-to-Service API (Worker/UI) ---
+
+NOTEBOOK_URL_PATTERN = re.compile(
+    r"https?://notebooklm\.google\.com/notebook/([a-f0-9\-]+)"
+)
+
+KIND_SYSTEM_PROMPTS = {
+    "answer": "Відповідай коротко та чітко українською.",
+    "summary": "Зроби стислий структурований конспект (5–10 пунктів) + висновок.",
+    "study_guide": "Зроби навчальний гайд: ключові терміни, пояснення, 10 питань для самоперевірки.",
+    "flashcards": "Згенеруй 10–20 flashcards у форматі: Q: ...\\nA: ...",
+}
+
+
+class HistoryMessage(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str
+
+
+class WorkerChatRequest(BaseModel):
+    notebookUrl: str = Field(..., description="NotebookLM URL with notebook ID")
+    message: str = Field(..., min_length=1, description="User's question")
+    kind: Literal["answer", "summary", "study_guide", "flashcards"] = Field(
+        "answer", description="Type of response to generate"
+    )
+    history: list[HistoryMessage] = Field(
+        default_factory=list, description="Conversation history (max 12 messages)"
+    )
+
+
+class WorkerChatResponse(BaseModel):
+    answer: str
+    request_id: Optional[str] = None
+
+
+class ServiceHealthResponse(BaseModel):
+    authenticated: bool
+    message: str
+    notebook_count: Optional[int] = None
+
+
+def parse_notebook_url(url: str) -> str:
+    """Extract notebook_id from NotebookLM URL."""
+    match = NOTEBOOK_URL_PATTERN.search(url)
+    if not match:
+        raise ValidationError(
+            "Invalid notebookUrl format",
+            details={"notebookUrl": url, "expected": "https://notebooklm.google.com/notebook/{id}"},
+        )
+    return match.group(1)
+
+
+def build_full_question(message: str, history: list[HistoryMessage], system_prompt: str) -> str:
+    """Build full question from message, history, and system prompt."""
+    max_messages = config.CHAT_MAX_HISTORY_MESSAGES
+    max_chars = config.CHAT_MAX_HISTORY_CHARS
+
+    recent_history = history[-max_messages:] if len(history) > max_messages else history
+
+    history_text = ""
+    total_chars = 0
+    for msg in recent_history:
+        role_label = "USER" if msg.role == "user" else "ASSISTANT"
+        line = f"{role_label}: {msg.content}\n"
+        if total_chars + len(line) > max_chars:
+            break
+        history_text += line
+        total_chars += len(line)
+
+    parts = []
+    if system_prompt:
+        parts.append(f"INSTRUCTIONS: {system_prompt}")
+    if history_text.strip():
+        parts.append(f"CONTEXT (recent conversation):\n{history_text.strip()}")
+    parts.append(f"USER QUESTION:\n{message}")
+
+    return "\n\n---\n\n".join(parts)
+
+
+@router.post("/chat", response_model=WorkerChatResponse)
+async def worker_chat(
+    request: WorkerChatRequest,
+    _: None = Depends(require_service_token),
+):
+    """
+    Chat endpoint for Cloudflare Worker / Lovable UI.
+
+    Requires Bearer token authentication via NOTEBOOKLM_SERVICE_TOKEN.
+    """
+    request_id = str(uuid.uuid4())
+
+    notebook_id = parse_notebook_url(request.notebookUrl)
+    system_prompt = KIND_SYSTEM_PROMPTS.get(request.kind, "")
+    full_question = build_full_question(request.message, request.history, system_prompt)
+
+    logger.info(
+        f"[{request_id}] Chat request: notebook_id={notebook_id}, kind={request.kind}, "
+        f"message_len={len(request.message)}, history_len={len(request.history)}"
+    )
+
+    try:
+        result = await asyncio.wait_for(
+            notebooklm_service.chat(
+                notebook_id=notebook_id,
+                question=full_question,
+                system_prompt=None,
+                show_sources=False,
+            ),
+            timeout=config.CHAT_TIMEOUT_SECONDS,
+        )
+
+        logger.info(f"[{request_id}] Chat success: answer_len={len(result.answer)}")
+
+        return WorkerChatResponse(
+            answer=result.answer,
+            request_id=request_id,
+        )
+
+    except asyncio.TimeoutError:
+        logger.error(f"[{request_id}] Chat timeout after {config.CHAT_TIMEOUT_SECONDS}s")
+        raise NotebookLMError(
+            message=f"Chat timeout after {config.CHAT_TIMEOUT_SECONDS}s",
+            details={"notebook_id": notebook_id, "kind": request.kind, "request_id": request_id},
+        )
+    except Exception as e:
+        logger.error(f"[{request_id}] Chat error: {e}")
+        raise NotebookLMError(
+            message=f"Chat failed: {str(e)}",
+            details={"notebook_id": notebook_id, "request_id": request_id},
+        )
+
+
+@router.get("/health", response_model=ServiceHealthResponse)
+async def service_health(
+    _: None = Depends(require_service_token),
+):
+    """
+    Health check for service-to-service authentication.
+
+    Returns NotebookLM authentication status and notebook count.
+    """
+    auth_status = await notebooklm_service.validate_auth()
+
+    return ServiceHealthResponse(
+        authenticated=auth_status.ok,
+        message=auth_status.message,
+        notebook_count=auth_status.notebook_count,
+    )

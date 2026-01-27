@@ -39,6 +39,14 @@ if not JOBS_FILE.is_absolute():
 CORS_ALLOW_ORIGINS = os.getenv("CORS_ALLOW_ORIGINS", "*").split(",")
 CORS_ALLOW_CREDENTIALS = os.getenv("CORS_ALLOW_CREDENTIALS", "true").lower() == "true"
 
+# Service-to-service authentication
+NOTEBOOKLM_SERVICE_TOKEN = os.getenv("NOTEBOOKLM_SERVICE_TOKEN", "")
+
+# Chat settings
+CHAT_TIMEOUT_SECONDS = int(os.getenv("CHAT_TIMEOUT_SECONDS", "90"))
+CHAT_MAX_HISTORY_MESSAGES = int(os.getenv("CHAT_MAX_HISTORY_MESSAGES", "12"))
+CHAT_MAX_HISTORY_CHARS = int(os.getenv("CHAT_MAX_HISTORY_CHARS", "25000"))
+
 # Limits
 MAX_STORAGE_STATE_SIZE = 5 * 1024 * 1024  # 5MB
 MAX_SOURCES_PER_IMPORT = int(os.getenv("MAX_SOURCES_PER_IMPORT", "20"))
