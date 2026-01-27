@@ -51,6 +51,8 @@ python -m uvicorn app.main:app --host 0.0.0.0 --port 5000
 - `/v1/notebooks` - List/create notebooks
 - `/v1/notebooks/{id}/sources/import` - Import sources
 - `/v1/notebooks/{id}/chat` - Chat with notebook
+- `/v1/diagnostics/minio` - MinIO connectivity check (optional `?zone_id=` to list per-note files)
+- `/v1/jobs/{job_id}` - Poll import job status
 
 ## Configuration
 Environment variables are configured in `.env.example`. Key settings:
@@ -69,6 +71,7 @@ Environment variables are configured in `.env.example`. Key settings:
 - Backend downloads from MinIO and uploads to NotebookLM
 
 ## Recent Changes
+- 2026-01-27: Added `/v1/diagnostics/minio` endpoint for connectivity check and zone file listing
 - 2026-01-27: Fixed notebooklm-py API - correct method is `sources.add_file(notebook_id, file_path, wait=True)`, no display_name parameter
 - 2026-01-27: Fixed MinIO configuration - endpoint must be hostname only (without https://), added MINIO_SECURE=true, renamed MINIO_BUCKET_RAW to MINIO_BUCKET
 - 2026-01-26: Fixed NotebookLM storage state path issue - notebooklm-py library expects file at ~/.notebooklm/storage_state.json, added sync functionality to copy from secrets/ on startup and after upload

@@ -1,0 +1,101 @@
+Підготую докладне, покрокове завдання для Replit-агента (з перевірками та критеріями приймання), щоб він виправив імпорт у NotebookLM.
+
+## Завдання для Replit агента: Fix NotebookLM Import (MinIO connectivity + source ingestion)
+
+### 0) Контекст / симптоми
+- NotebookLM ноутбук **створюється**, але **порожній**.
+- Job переходить у `failed` з помилками типу:
+  - `HTTPConnectionPool(host='localhost', port=9000) ... Connection refused`
+- Це означає: **FastAPI/Replit backend намагається дістатись MinIO за `localhost:9000`**, що неможливо в проді/з контейнера Replit.
+- Gateway `/auth/status` показує `notebookLMReady: true` (це лише про auth до Google/NotebookLM), але **не гарантує доступ до MinIO**.
+
+---
+
+### 1) Ціль
+Забезпечити, щоб Replit/FastAPI backend:
+1) Підключався до MinIO по **реальному reachable endpoint** (не localhost)  
+2) Умів **завантажувати всі sources** з bucket `mcpstorage` та передавати їх у NotebookLM import  
+3) Повертав у job `results[]` успішні статуси (або коректні помилки без “localhost:9000”).
+
+---
+
+### 2) Обов’язкові зміни (конфіг/ENV у Replit)
+Перевірити та виправити ENV змінні в Replit (назви можуть відрізнятись, але значення/сенс обов’язкові):
+
+- `MINIO_ENDPOINT`:
+  - **ЗАБОРОНЕНО:** `localhost:9000`, `127.0.0.1:9000`
+  - **ПРАВИЛЬНО:** публічний домен або IP, доступний з Replit  
+    - приклади: `minio.example.com:9000` або `https://minio.example.com`
+- `MINIO_BUCKET`: `mcpstorage`
+- `MINIO_ACCESS_KEY`: (секрет)
+- `MINIO_SECRET_KEY`: (секрет)
+- `MINIO_SECURE`: `true` якщо https, `false` якщо http
+- Якщо використовується region/патчі для boto3/aiobotocore:
+  - `AWS_REGION` або `MINIO_REGION` (часто `us-east-1`)
+- Перевірити, що бекенд **не хардкодить** localhost у коді (пошук по репо: `localhost:9000`, `127.0.0.1`, `mcpstorage?location`).
+
+---
+
+### 3) Кодова перевірка MinIO клієнта (FastAPI)
+Агент має:
+- Знайти місце створення S3/MinIO клієнта (boto3 / aioboto3 / minio sdk).
+- Переконатися, що endpoint формується коректно:
+  - якщо потрібно — нормалізувати схему:
+    - коли `MINIO_SECURE=true` → `https://...`
+    - коли `false` → `http://...`
+- Переконатися, що використовується path-style доступ (часто потрібно для MinIO):
+  - boto3: `Config(s3={'addressing_style': 'path'})`
+- Переконатися, що підпис/версія SigV4 узгоджена (звичайно OK, але перевірити на 403 SignatureDoesNotMatch).
+
+---
+
+### 4) Додати/покращити діагностику в Replit backend (обов’язково)
+#### 4.1 Health endpoint для MinIO (для швидкого дебагу)
+Додати (owner-only, або хоча б без секретів у відповіді) endpoint, наприклад:
+- `GET /diagnostics/minio`
+Який робить:
+- `HEAD bucket` або `LIST objects` для префікса `zones//notes/` (zoneId параметром або тестовий fixed)
+- Повертає JSON:
+  - `minio_ok: boolean`
+  - `endpoint: `
+  - `secure: boolean`
+  - `bucket: mcpstorage`
+  - `error: string|null` (stacktrace можна урізати)
+
+#### 4.2 Логи job results
+Під час імпорту:
+- для кожного source логувати:
+  - ключ `zones//notes/...`
+  - чи вдалося скачати об’єкт з MinIO (bytes / content-type)
+  - чи вдалося відправити в NotebookLM
+- `results[]` має містити:
+  - `source.key`, `status`, `error`, `retries`
+
+---
+
+### 5) Верифікація (чіткі кроки)
+Після деплою Replit backend:
+
+1) На фронті: `/admin/diagnostics` → **Ping /health** (переконатися що сервіс живий).
+2) Запустити імпорт (створення зони або `Retry import`) для зони з 5 нотатками.
+3) Перевірити polling job:
+   - `GET /zones/:zoneId/notebooklm/job/:jobId`
+4) Очікувано:
+   - `status: completed`
+   - `progress: 100`
+   - `results[]` містить `status != error` принаймні для більшості/всіх sources
+5) Відкрити NotebookLM → Sources мають бути присутні, notebook не порожній.
+
+---
+
+### 6) Критерії приймання (Definition of Done)
+- Жодного `localhost:9000` у job errors.
+- `Retry import` призводить до `completed` мінімум на тестовій зоні.
+- Для фейлів (якщо будуть) — помилки мають бути реальними (403/404/timeout) і зрозумілими, з `results[]`.
+- Додано `GET /diagnostics/minio` (або еквівалент) і він показує `minio_ok: true` в робочому середовищі.
+
+---
+
+Copy debug report
+MinIO diagnostics UI
+Preflight MinIO check

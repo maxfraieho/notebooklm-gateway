@@ -341,3 +341,65 @@ async def get_job_status(job_id: str):
         error=job.error,
         results=[SourceResultResponse(**r) for r in job.results] if job.results else None,
     )
+
+
+# --- Diagnostics ---
+
+class MinioDiagnosticsResponse(BaseModel):
+    minio_ok: bool
+    endpoint: str
+    secure: bool
+    bucket: str
+    error: Optional[str] = None
+    test_prefix: Optional[str] = None
+    objects_found: Optional[int] = None
+
+
+@router.get("/diagnostics/minio", response_model=MinioDiagnosticsResponse)
+async def minio_diagnostics(zone_id: Optional[str] = None):
+    """
+    Check MinIO connectivity and list objects for a zone prefix.
+
+    Use this to verify MinIO configuration before import.
+    """
+    from app.services import minio_service
+
+    endpoint = config.MINIO_ENDPOINT
+    secure = config.MINIO_SECURE
+    bucket = config.MINIO_BUCKET
+
+    try:
+        ok, msg = minio_service.check_connection()
+        if not ok:
+            return MinioDiagnosticsResponse(
+                minio_ok=False,
+                endpoint=endpoint,
+                secure=secure,
+                bucket=bucket,
+                error=msg,
+            )
+
+        objects_found = None
+        test_prefix = None
+        if zone_id:
+            test_prefix = f"zones/{zone_id}/notes/"
+            client = minio_service.get_client()
+            objects = list(client.list_objects(bucket, prefix=test_prefix))
+            objects_found = len(objects)
+
+        return MinioDiagnosticsResponse(
+            minio_ok=True,
+            endpoint=endpoint,
+            secure=secure,
+            bucket=bucket,
+            test_prefix=test_prefix,
+            objects_found=objects_found,
+        )
+    except Exception as e:
+        return MinioDiagnosticsResponse(
+            minio_ok=False,
+            endpoint=endpoint,
+            secure=secure,
+            bucket=bucket,
+            error=str(e),
+        )
