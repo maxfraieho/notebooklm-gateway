@@ -107,16 +107,16 @@ async def add_source_file(notebook_id: str, file_path: Path, title: Optional[str
     Args:
         notebook_id: Target notebook ID
         file_path: Path to the file to upload
-        title: Optional title for the source
+        title: Optional title for the source (not used by current API)
 
     Returns:
         Dict with source_id and status
     """
     async with await get_client() as client:
-        source = await client.sources.upload(
+        source = await client.sources.add_file(
             notebook_id=notebook_id,
             file_path=str(file_path),
-            display_name=title,
+            wait=True,
         )
         return {
             "source_id": source.id,

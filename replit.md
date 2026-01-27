@@ -69,6 +69,7 @@ Environment variables are configured in `.env.example`. Key settings:
 - Backend downloads from MinIO and uploads to NotebookLM
 
 ## Recent Changes
+- 2026-01-27: Fixed notebooklm-py API - correct method is `sources.add_file(notebook_id, file_path, wait=True)`, no display_name parameter
 - 2026-01-27: Fixed MinIO configuration - endpoint must be hostname only (without https://), added MINIO_SECURE=true, renamed MINIO_BUCKET_RAW to MINIO_BUCKET
 - 2026-01-26: Fixed NotebookLM storage state path issue - notebooklm-py library expects file at ~/.notebooklm/storage_state.json, added sync functionality to copy from secrets/ on startup and after upload
 - 2026-01-26: Initial Replit environment setup, configured to run on port 5000

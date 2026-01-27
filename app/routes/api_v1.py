@@ -99,6 +99,8 @@ class SourceResultResponse(BaseModel):
     status: str
     source_id: Optional[str] = None
     error: Optional[str] = None
+    error_code: Optional[str] = None
+    error_details: Optional[dict] = None
     retries: int = 0
 
 

@@ -11,7 +11,10 @@ from pathlib import Path
 from typing import Optional
 from dataclasses import dataclass, asdict, field
 
+from minio.error import S3Error
+
 from app import config
+from app.errors import ErrorCode
 from app.services import state_store, minio_service, notebooklm_service
 
 logger = logging.getLogger(__name__)
@@ -30,6 +33,8 @@ class SourceResult:
     status: str  # "success" or "error"
     source_id: Optional[str] = None
     error: Optional[str] = None
+    error_code: Optional[str] = None
+    error_details: Optional[dict] = None
     retries: int = 0
 
 
@@ -263,6 +268,23 @@ async def process_source_with_retry(
         except asyncio.TimeoutError:
             last_error = f"Timeout after {config.JOB_TIMEOUT_SECONDS}s"
             logger.warning(f"Source processing timed out (attempt {attempt + 1}): {source_spec}")
+
+        except S3Error as e:
+            bucket = source_spec.get("bucket", "unknown")
+            key = source_spec.get("key", "unknown")
+            
+            if e.code == "NoSuchKey":
+                logger.warning(f"MinIO NoSuchKey: {bucket}/{key}")
+                return SourceResult(
+                    source=source_spec,
+                    status="error",
+                    error="Source file not found in storage",
+                    error_code=ErrorCode.MINIO_NO_SUCH_KEY,
+                    error_details={"bucket": bucket, "key": key},
+                )
+            else:
+                last_error = f"MinIO error ({e.code}): {e.message}"
+                logger.warning(f"MinIO error (attempt {attempt + 1}): {e.code} - {e.message}")
 
         except Exception as e:
             last_error = str(e)
