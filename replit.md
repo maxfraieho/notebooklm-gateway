@@ -55,11 +55,21 @@ python -m uvicorn app.main:app --host 0.0.0.0 --port 5000
 ## Configuration
 Environment variables are configured in `.env.example`. Key settings:
 - `PORT`: Server port (default: 5000)
-- `MINIO_*`: MinIO/S3 connection settings
+- `MINIO_ENDPOINT`: MinIO hostname without protocol (e.g., `apiminio.exodus.pp.ua`)
+- `MINIO_ACCESS_KEY`: MinIO access key
+- `MINIO_SECRET_KEY`: MinIO secret key
+- `MINIO_BUCKET`: Bucket name (e.g., `mcpstorage`)
+- `MINIO_SECURE`: Use HTTPS (`true`/`false`)
 - `STORAGE_STATE_PATH`: Path to Google auth cookies
 - `CORS_ALLOW_ORIGINS`: Allowed CORS origins
 
+### MinIO Architecture
+- Fixed bucket with zone folders: `{MINIO_BUCKET}/zones/{zoneId}/`
+- Files per zone: `notes.json`, `notes.jsonl`, `notes.md`
+- Backend downloads from MinIO and uploads to NotebookLM
+
 ## Recent Changes
+- 2026-01-27: Fixed MinIO configuration - endpoint must be hostname only (without https://), added MINIO_SECURE=true, renamed MINIO_BUCKET_RAW to MINIO_BUCKET
 - 2026-01-26: Fixed NotebookLM storage state path issue - notebooklm-py library expects file at ~/.notebooklm/storage_state.json, added sync functionality to copy from secrets/ on startup and after upload
 - 2026-01-26: Initial Replit environment setup, configured to run on port 5000
 
