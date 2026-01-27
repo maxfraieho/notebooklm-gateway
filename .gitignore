@@ -39,6 +39,9 @@ tmp/
 *.tmp
 *.log
 
+# Attached assets (may contain secrets from chat)
+attached_assets/
+
 # OS
 .DS_Store
 Thumbs.db
