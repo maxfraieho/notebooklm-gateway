@@ -23,3 +23,12 @@ python-dotenv
 python-multipart
 uvicorn[standard]
 aiofiles
+aiofiles==24.1.0
+fastapi==0.115.6
+jinja2==3.1.5
+minio==7.2.15
+notebooklm-py==0.3.1
+playwright==1.50.0
+python-dotenv==1.0.1
+python-multipart==0.0.19
+uvicorn[standard]==0.34.0
