@@ -78,7 +78,7 @@ IDEMPOTENCY_FILE = DATA_DIR / "idempotency.json"
 
 # GitHub Integration
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
-GITHUB_REPO = os.getenv("GITHUB_REPO", "maxfraieho/garden-bloom")
+GITHUB_REPO = os.getenv("GITHUB_REPO", "maxfraieho/project-genesis")
 GITHUB_BRANCH = os.getenv("GITHUB_BRANCH", "main")
 GITHUB_CONFIG_FILE = DATA_DIR / "github_config.json"
 

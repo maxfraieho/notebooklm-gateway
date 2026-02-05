@@ -74,10 +74,13 @@ Environment variables are configured in `.env.example`. Key settings:
 
 ## Recent Changes
 - 2026-02-05: Added GitHub integration for auto-committing accepted proposals
+  - Target repo: `maxfraieho/project-genesis`
   - New endpoint: `/v1/git/commit` - Commit files to GitHub (requires service token)
+  - New endpoints: `/api/github/config` and `/api/github/status` - Configure/check GitHub settings (public, for web UI)
   - New endpoints: `/v1/api/github/config` and `/v1/api/github/status` - Configure/check GitHub settings (requires service token)
   - Path validation enforces `src/site/notes/` prefix for security
   - GitHub config loaded from file or environment variables on startup
+  - Web UI admin panel at `/` for configuring GitHub token and repository
 - 2026-02-05: Added `/debug/minio` endpoint for MinIO diagnostics (connection test, bucket listing)
 - 2026-02-05: Fixed MinIO endpoint parsing - handles both with/without https:// prefix
 - 2026-01-27: Added `/v1/chat` and `/v1/health` endpoints for Worker/UI with Bearer token auth (NOTEBOOKLM_SERVICE_TOKEN)
