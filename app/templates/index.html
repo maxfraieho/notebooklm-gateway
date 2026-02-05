@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotebookLM Backend - Admin</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #1a73e8;
+            margin-bottom: 8px;
+            font-size: 28px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 32px;
+            font-size: 14px;
+        }
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.1);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        .card h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .card > p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        label {
+            display: block;
+            font-weight: 500;
+            color: #333;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            outline: none;
+            border-color: #1a73e8;
+        }
+        input[type="file"] {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background: #fafafa;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+        }
+        input[type="file"]:hover {
+            border-color: #1a73e8;
+            background: #f0f7ff;
+        }
+        small {
+            color: #888;
+            font-size: 12px;
+            display: block;
+            margin-top: 4px;
+        }
+        small a {
+            color: #1a73e8;
+        }
+        .btn-primary {
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background: #1557b0;
+        }
+        .btn-primary:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .status-box {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            display: none;
+            font-size: 14px;
+        }
+        .status-box.pending {
+            background: #fef3c7;
+            color: #92400e;
+            display: block;
+        }
+        .status-box.success {
+            background: #d1fae5;
+            color: #065f46;
+            display: block;
+        }
+        .status-box.error {
+            background: #fee2e2;
+            color: #991b1b;
+            display: block;
+        }
+        details {
+            margin-top: 16px;
+            font-size: 13px;
+        }
+        details summary {
+            cursor: pointer;
+            color: #1a73e8;
+            font-weight: 500;
+        }
+        details ol {
+            margin: 12px 0 0 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+        details code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 12px;
+        }
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 8px;
+            padding: 12px;
+            font-size: 13px;
+            color: #856404;
+        }
+        .nav-links {
+            margin-top: 24px;
+            text-align: center;
+        }
+        .nav-links a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 13px;
+            margin: 0 12px;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NotebookLM Backend</h1>
+        <p class="subtitle">Admin panel for service configuration</p>
+
+        <div class="card">
+            <h2>NotebookLM Authentication</h2>
+            <p>Upload your Google session cookies to enable API access</p>
+
+            <div class="warning" style="margin-bottom: 20px;">
+                <strong>Security Notice:</strong> This server has no authentication.
+                Do not expose to public internet. For internal/testing use only.
+            </div>
+
+            <form id="notebooklm-form" action="/auth/upload" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Select storage_state.json:</label>
+                    <input type="file" id="file" name="file" accept=".json,application/json" required>
+                </div>
+                <button type="submit" class="btn-primary">Upload and Validate</button>
+            </form>
+
+            <div id="notebooklm-status" class="status-box"></div>
+
+            <details>
+                <summary>How to get storage_state.json</summary>
+                <ol>
+                    <li>Install notebooklm-py on your local machine:<br>
+                        <code>pip install notebooklm-py playwright</code>
+                    </li>
+                    <li>Install Playwright browser:<br>
+                        <code>playwright install chromium</code>
+                    </li>
+                    <li>Run login command (opens browser):<br>
+                        <code>notebooklm login</code>
+                    </li>
+                    <li>Sign in with your Google account</li>
+                    <li>Find <code>storage_state.json</code> in current directory</li>
+                    <li>Upload the file above</li>
+                </ol>
+            </details>
+        </div>
+
+        <div class="card">
+            <h2>GitHub Integration</h2>
+            <p>Configure GitHub repository for auto-committing accepted proposals.</p>
+
+            <form id="github-form">
+                <div class="form-group">
+                    <label for="github-token">Personal Access Token (PAT)</label>
+                    <input type="password" id="github-token" name="github_token" 
+                           placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+                    <small>Fine-grained PAT with Contents:write permission. 
+                        <a href="https://github.com/settings/tokens?type=beta" target="_blank">Create token</a>
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="github-repo">Repository (owner/repo)</label>
+                    <input type="text" id="github-repo" name="github_repo" 
+                           placeholder="owner/repo" />
+                </div>
+
+                <div class="form-group">
+                    <label for="github-branch">Branch</label>
+                    <input type="text" id="github-branch" name="github_branch" 
+                           placeholder="main" value="main" />
+                </div>
+
+                <button type="submit" class="btn-primary">Save GitHub Settings</button>
+            </form>
+
+            <div id="github-status" class="status-box"></div>
+
+            <details>
+                <summary>Instructions for creating GitHub token</summary>
+                <ol>
+                    <li>Go to <a href="https://github.com/settings/tokens?type=beta" target="_blank">GitHub Fine-grained tokens</a></li>
+                    <li>Click "Generate new token"</li>
+                    <li>Token name: <code>garden-proposal-bot</code></li>
+                    <li>Expiration: 90 days (or custom)</li>
+                    <li>Repository access: Only select repositories - your target repo</li>
+                    <li>Permissions - Repository permissions - Contents: Read and write</li>
+                    <li>Generate and copy token</li>
+                </ol>
+            </details>
+        </div>
+
+        <div class="nav-links">
+            <a href="/health">Health Check</a>
+            <a href="/docs">API Docs</a>
+            <a href="/auth/status">Auth Status</a>
+            <a href="/debug/minio">MinIO Debug</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('github-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const statusEl = document.getElementById('github-status');
+            statusEl.textContent = 'Saving...';
+            statusEl.className = 'status-box pending';
+            statusEl.style.display = 'block';
+
+            try {
+                const resp = await fetch('/api/github/config', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        token: document.getElementById('github-token').value,
+                        repo: document.getElementById('github-repo').value,
+                        branch: document.getElementById('github-branch').value || 'main',
+                    }),
+                });
+
+                const data = await resp.json();
+                if (data.success) {
+                    statusEl.textContent = 'GitHub configured: ' + data.repo;
+                    statusEl.className = 'status-box success';
+                    document.getElementById('github-token').value = '';
+                } else {
+                    throw new Error(data.error || 'Configuration failed');
+                }
+            } catch (err) {
+                statusEl.textContent = err.message;
+                statusEl.className = 'status-box error';
+            }
+        });
+
+        async function loadGitHubStatus() {
+            try {
+                const resp = await fetch('/api/github/status');
+                const data = await resp.json();
+                const statusEl = document.getElementById('github-status');
+
+                if (data.configured) {
+                    document.getElementById('github-repo').value = data.repo || '';
+                    document.getElementById('github-branch').value = data.branch || 'main';
+                    statusEl.textContent = 'GitHub configured: ' + data.repo + (data.valid ? ' (valid)' : ' (token invalid)');
+                    statusEl.className = 'status-box ' + (data.valid ? 'success' : 'error');
+                    statusEl.style.display = 'block';
+                }
+            } catch (e) {
+                console.error('Failed to load GitHub status:', e);
+            }
+        }
+
+        async function loadNotebookLMStatus() {
+            try {
+                const resp = await fetch('/auth/status');
+                const data = await resp.json();
+                const statusEl = document.getElementById('notebooklm-status');
+
+                if (data.authenticated) {
+                    statusEl.textContent = 'NotebookLM authenticated';
+                    statusEl.className = 'status-box success';
+                    statusEl.style.display = 'block';
+                }
+            } catch (e) {
+                console.error('Failed to load NotebookLM status:', e);
+            }
+        }
+
+        loadGitHubStatus();
+        loadNotebookLMStatus();
+    </script>
+</body>
+</html>

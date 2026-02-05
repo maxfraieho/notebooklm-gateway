@@ -9,11 +9,15 @@ For internal/development use only.
 """
 import logging
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, HTMLResponse
+from fastapi.templating import Jinja2Templates
+from pathlib import Path
 
 from app import config
+
+templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 from app.routes import auth, api_v1
 from app.services import jobs
 from app.errors import APIError, api_error_handler, http_exception_handler, generic_exception_handler
@@ -208,9 +212,78 @@ async def debug_minio():
     return result
 
 
-@app.get("/")
-async def root():
-    """Root endpoint - returns API info."""
+@app.get("/", response_class=HTMLResponse)
+async def root(request: Request):
+    """Root endpoint - serves admin panel."""
+    return templates.TemplateResponse("index.html", {"request": request})
+
+
+@app.post("/api/github/config")
+async def save_github_config_public(request: Request):
+    """Save GitHub configuration from web UI (no auth required for admin panel)."""
+    import json
+    import httpx
+    from app.services.github_service import github_service
+    
+    body = await request.json()
+    token = body.get("token", "").strip()
+    repo = body.get("repo", "").strip()
+    branch = body.get("branch", "main").strip()
+    
+    if not token or not repo:
+        return {"success": False, "error": "Token and repo are required"}
+    
+    headers = {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    async with httpx.AsyncClient() as client:
+        try:
+            resp = await client.get(f"https://api.github.com/repos/{repo}", headers=headers)
+            if resp.status_code == 404:
+                return {"success": False, "error": f"Repository not found: {repo}"}
+            if resp.status_code == 401:
+                return {"success": False, "error": "Invalid token"}
+            if resp.status_code != 200:
+                return {"success": False, "error": f"GitHub API error: {resp.status_code}"}
+        except Exception as e:
+            return {"success": False, "error": f"Connection error: {str(e)}"}
+    
+    github_service.configure(token, repo, branch)
+    
+    config.GITHUB_CONFIG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    config.GITHUB_CONFIG_FILE.write_text(json.dumps({
+        "token": token,
+        "repo": repo,
+        "branch": branch,
+    }))
+    
+    return {"success": True, "repo": repo}
+
+
+@app.get("/api/github/status")
+async def get_github_status_public():
+    """Check if GitHub is configured (for web UI)."""
+    from app.services.github_service import github_service
+    
+    if not github_service.configured:
+        return {"configured": False}
+    
+    valid, error = await github_service.validate_token()
+    
+    return {
+        "configured": True,
+        "repo": github_service.repo,
+        "branch": github_service.branch,
+        "valid": valid,
+        "error": error if not valid else None,
+    }
+
+
+@app.get("/api/info")
+async def api_info():
+    """API info endpoint - returns JSON status."""
     if config.STORAGE_STATE_PATH.exists():
         return {
             "service": "NotebookLM Backend",
