@@ -222,7 +222,6 @@ async def root(request: Request):
 async def save_github_config_public(request: Request):
     """Save GitHub configuration from web UI (no auth required for admin panel)."""
     import json
-    import httpx
     from app.services.github_service import github_service
     
     body = await request.json()
@@ -232,23 +231,6 @@ async def save_github_config_public(request: Request):
     
     if not token or not repo:
         return {"success": False, "error": "Token and repo are required"}
-    
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Accept": "application/vnd.github+json",
-        "X-GitHub-Api-Version": "2022-11-28",
-    }
-    async with httpx.AsyncClient() as client:
-        try:
-            resp = await client.get(f"https://api.github.com/repos/{repo}", headers=headers)
-            if resp.status_code == 404:
-                return {"success": False, "error": f"Repository not found: {repo}"}
-            if resp.status_code == 401:
-                return {"success": False, "error": "Invalid token"}
-            if resp.status_code != 200:
-                return {"success": False, "error": f"GitHub API error: {resp.status_code}"}
-        except Exception as e:
-            return {"success": False, "error": f"Connection error: {str(e)}"}
     
     github_service.configure(token, repo, branch)
     
@@ -270,14 +252,10 @@ async def get_github_status_public():
     if not github_service.configured:
         return {"configured": False}
     
-    valid, error = await github_service.validate_token()
-    
     return {
         "configured": True,
         "repo": github_service.repo,
         "branch": github_service.branch,
-        "valid": valid,
-        "error": error if not valid else None,
     }
 
 

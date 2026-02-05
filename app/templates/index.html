@@ -312,8 +312,8 @@
                 if (data.configured) {
                     document.getElementById('github-repo').value = data.repo || '';
                     document.getElementById('github-branch').value = data.branch || 'main';
-                    statusEl.textContent = 'GitHub configured: ' + data.repo + (data.valid ? ' (valid)' : ' (token invalid)');
-                    statusEl.className = 'status-box ' + (data.valid ? 'success' : 'error');
+                    statusEl.textContent = 'GitHub configured: ' + data.repo;
+                    statusEl.className = 'status-box success';
                     statusEl.style.display = 'block';
                 }
             } catch (e) {
