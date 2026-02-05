@@ -73,6 +73,13 @@ Environment variables are configured in `.env.example`. Key settings:
 - Backend downloads from MinIO and uploads to NotebookLM
 
 ## Recent Changes
+- 2026-02-05: Added GitHub integration for auto-committing accepted proposals
+  - New endpoint: `/v1/git/commit` - Commit files to GitHub (requires service token)
+  - New endpoints: `/v1/api/github/config` and `/v1/api/github/status` - Configure/check GitHub settings (requires service token)
+  - Path validation enforces `src/site/notes/` prefix for security
+  - GitHub config loaded from file or environment variables on startup
+- 2026-02-05: Added `/debug/minio` endpoint for MinIO diagnostics (connection test, bucket listing)
+- 2026-02-05: Fixed MinIO endpoint parsing - handles both with/without https:// prefix
 - 2026-01-27: Added `/v1/chat` and `/v1/health` endpoints for Worker/UI with Bearer token auth (NOTEBOOKLM_SERVICE_TOKEN)
 - 2026-01-27: Added `/v1/diagnostics/minio` endpoint for connectivity check and zone file listing
 - 2026-01-27: Fixed notebooklm-py API - correct method is `sources.add_file(notebook_id, file_path, wait=True)`, no display_name parameter
