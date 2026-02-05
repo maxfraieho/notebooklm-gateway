@@ -628,6 +628,19 @@ class GitCommitResponse(BaseModel):
     hint: Optional[str] = None
 
 
+def validate_git_path(path: str) -> tuple[bool, str]:
+    """Validate git file path for security."""
+    if not path:
+        return False, "Path is required"
+    if path.startswith("/") or path.startswith("\\"):
+        return False, "Absolute paths not allowed"
+    if ".." in path:
+        return False, "Path traversal not allowed"
+    if not path.startswith("src/site/notes/"):
+        return False, "Path must start with src/site/notes/"
+    return True, ""
+
+
 @router.post("/git/commit", response_model=GitCommitResponse)
 async def git_commit(
     request: GitCommitRequest,
@@ -643,6 +656,10 @@ async def git_commit(
             error="GitHub integration not configured",
             hint="Set GITHUB_TOKEN via /api/github/config or environment variables",
         )
+    
+    valid, error = validate_git_path(request.path)
+    if not valid:
+        return GitCommitResponse(success=False, error=error)
     
     author_email = f"{request.authorName.lower().replace(' ', '.')}@garden.guest"
     
@@ -672,8 +689,11 @@ class GitHubStatusResponse(BaseModel):
 
 
 @router.post("/api/github/config")
-async def save_github_config(request: GitHubConfigRequest):
-    """Save GitHub configuration (token stored in env/secrets)."""
+async def save_github_config(
+    request: GitHubConfigRequest,
+    _: None = Depends(require_service_token),
+):
+    """Save GitHub configuration (token stored in env/secrets). Requires service token."""
     import json
     
     github_service.configure(request.token, request.repo, request.branch)
@@ -693,8 +713,10 @@ async def save_github_config(request: GitHubConfigRequest):
 
 
 @router.get("/api/github/status", response_model=GitHubStatusResponse)
-async def get_github_status():
-    """Check if GitHub is configured."""
+async def get_github_status(
+    _: None = Depends(require_service_token),
+):
+    """Check if GitHub is configured. Requires service token."""
     configured = github_service.configured
     
     if not configured:

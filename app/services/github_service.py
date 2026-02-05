@@ -133,15 +133,22 @@ class GitHubService:
             resp = await client.put(url, headers=self.headers, json=payload)
             
             if resp.status_code in (200, 201):
-                data = resp.json()
-                logger.info(f"[GitHub] Committed {path} -> {data['commit']['sha'][:7]}")
-                return {
-                    "success": True,
-                    "sha": data["commit"]["sha"],
-                    "url": data["content"]["html_url"],
-                }
+                try:
+                    data = resp.json()
+                    logger.info(f"[GitHub] Committed {path} -> {data['commit']['sha'][:7]}")
+                    return {
+                        "success": True,
+                        "sha": data["commit"]["sha"],
+                        "url": data["content"]["html_url"],
+                    }
+                except Exception as e:
+                    logger.error(f"[GitHub] Failed to parse success response: {e}")
+                    return {"success": True, "sha": "unknown", "url": None}
             else:
-                error = resp.json().get("message", resp.text)
+                try:
+                    error = resp.json().get("message", "Unknown error")
+                except Exception:
+                    error = f"GitHub API error: {resp.status_code}"
                 logger.error(f"[GitHub] Commit failed: {resp.status_code} - {error}")
                 return {"success": False, "error": error, "status": resp.status_code}
 

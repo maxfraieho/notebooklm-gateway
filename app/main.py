@@ -53,12 +53,13 @@ async def lifespan(app: FastAPI):
     access_key_prefix = config.MINIO_ACCESS_KEY[:4] + "****" if len(config.MINIO_ACCESS_KEY) > 4 else "****"
     logger.info(f"MinIO config: endpoint={config.MINIO_ENDPOINT}, access_key={access_key_prefix}, bucket={config.MINIO_BUCKET}, secure={config.MINIO_SECURE}")
     
+    # Ensure directories exist before loading configs
+    config.ensure_dirs()
+    
     # Load GitHub config from file
     load_github_config()
     github_configured = bool(config.GITHUB_TOKEN or config.GITHUB_CONFIG_FILE.exists())
     logger.info(f"GitHub config: configured={github_configured}, repo={config.GITHUB_REPO}")
-    
-    config.ensure_dirs()
     
     # Sync storage state to library location
     if config.sync_storage_state():
