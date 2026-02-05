@@ -31,7 +31,7 @@ class GitHubService:
     def repo(self) -> str:
         if self._repo:
             return self._repo
-        return os.getenv("GITHUB_REPO", "maxfraieho/garden-bloom")
+        return os.getenv("GITHUB_REPO", "maxfraieho/project-genesis")
     
     @property
     def branch(self) -> str:
