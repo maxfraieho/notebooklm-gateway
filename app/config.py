@@ -15,10 +15,18 @@ PORT = int(os.getenv("PORT", "5000"))
 HOST = os.getenv("HOST", "0.0.0.0")
 
 # MinIO / S3
-MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT", "localhost:9000")
+_minio_endpoint_raw = os.getenv("MINIO_ENDPOINT", "localhost:9000")
+if _minio_endpoint_raw.startswith("https://"):
+    MINIO_ENDPOINT = _minio_endpoint_raw.replace("https://", "")
+    MINIO_SECURE = True
+elif _minio_endpoint_raw.startswith("http://"):
+    MINIO_ENDPOINT = _minio_endpoint_raw.replace("http://", "")
+    MINIO_SECURE = os.getenv("MINIO_SECURE", "false").lower() == "true"
+else:
+    MINIO_ENDPOINT = _minio_endpoint_raw
+    MINIO_SECURE = os.getenv("MINIO_SECURE", "false").lower() == "true"
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS_KEY", "minioadmin")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET_KEY", "minioadmin")
-MINIO_SECURE = os.getenv("MINIO_SECURE", "false").lower() == "true"
 MINIO_BUCKET = os.getenv("MINIO_BUCKET", "mcpstorage")
 
 # NotebookLM

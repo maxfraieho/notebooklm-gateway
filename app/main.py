@@ -31,6 +31,11 @@ async def lifespan(app: FastAPI):
     """Application lifespan handler."""
     # Startup
     logger.info("Starting NotebookLM Backend...")
+    
+    # Log MinIO configuration (masked)
+    access_key_prefix = config.MINIO_ACCESS_KEY[:4] + "****" if len(config.MINIO_ACCESS_KEY) > 4 else "****"
+    logger.info(f"MinIO config: endpoint={config.MINIO_ENDPOINT}, access_key={access_key_prefix}, bucket={config.MINIO_BUCKET}, secure={config.MINIO_SECURE}")
+    
     config.ensure_dirs()
     
     # Sync storage state to library location
@@ -108,12 +113,76 @@ async def health_check():
     Returns server status and authentication state.
     Always returns 200 OK even if not authenticated.
     """
+    import os
     auth_ok = config.STORAGE_STATE_PATH.exists()
     return {
         "status": "healthy",
         "authenticated": auth_ok,
         "version": "0.1.0",
+        "service_id": os.getenv("REPL_SLUG", "unknown"),
+        "repl_owner": os.getenv("REPL_OWNER", "unknown"),
     }
+
+
+@app.get("/debug/minio")
+async def debug_minio():
+    """
+    Debug endpoint for MinIO connection diagnostics.
+    
+    Returns connection status and masked configuration.
+    Never exposes full secrets.
+    """
+    from app.services import minio_service
+    from minio.error import S3Error
+    
+    # Masked access key (first 4 chars only)
+    access_key_masked = config.MINIO_ACCESS_KEY[:4] + "****" if len(config.MINIO_ACCESS_KEY) > 4 else "****"
+    
+    result = {
+        "config": {
+            "endpoint": config.MINIO_ENDPOINT,
+            "access_key": access_key_masked,
+            "bucket": config.MINIO_BUCKET,
+            "secure": config.MINIO_SECURE,
+        },
+        "ok": False,
+        "error_type": None,
+        "error_message": None,
+        "buckets": None,
+    }
+    
+    try:
+        # Reset client singleton to pick up any env changes
+        minio_service._client = None
+        client = minio_service.get_client()
+        
+        # Try list_buckets as health check
+        buckets = client.list_buckets()
+        bucket_names = [b.name for b in buckets]
+        
+        result["ok"] = True
+        result["buckets"] = bucket_names
+        
+        # Check if target bucket exists
+        if config.MINIO_BUCKET in bucket_names:
+            result["target_bucket_exists"] = True
+            # Try to list a few objects
+            try:
+                objects = list(client.list_objects(config.MINIO_BUCKET, prefix="zones/"))[:3]
+                result["sample_objects"] = [obj.object_name for obj in objects]
+            except Exception as e:
+                result["sample_objects_error"] = str(e)
+        else:
+            result["target_bucket_exists"] = False
+            
+    except S3Error as e:
+        result["error_type"] = e.code
+        result["error_message"] = str(e)
+    except Exception as e:
+        result["error_type"] = type(e).__name__
+        result["error_message"] = str(e)
+    
+    return result
 
 
 @app.get("/")
