@@ -21,6 +21,7 @@ from app.errors import (
     ErrorCode,
 )
 from app.services import notebooklm_service, jobs
+from app.services.github_service import github_service
 
 logger = logging.getLogger(__name__)
 
@@ -578,7 +579,14 @@ async def worker_chat(
         )
 
 
-@router.get("/health", response_model=ServiceHealthResponse)
+class ServiceHealthResponseV2(BaseModel):
+    authenticated: bool
+    message: str
+    notebook_count: Optional[int] = None
+    services: dict = {}
+
+
+@router.get("/health", response_model=ServiceHealthResponseV2)
 async def service_health(
     _: None = Depends(require_service_token),
 ):
@@ -587,10 +595,117 @@ async def service_health(
 
     Returns NotebookLM authentication status and notebook count.
     """
+    from app.services import minio_service
+    
     auth_status = await notebooklm_service.validate_auth()
+    minio_ok, _ = minio_service.check_connection()
 
-    return ServiceHealthResponse(
+    return ServiceHealthResponseV2(
         authenticated=auth_status.ok,
         message=auth_status.message,
         notebook_count=auth_status.notebook_count,
+        services={
+            "notebooklm": auth_status.ok,
+            "minio": minio_ok,
+            "github": github_service.configured,
+        },
+    )
+
+
+class GitCommitRequest(BaseModel):
+    path: str = Field(..., min_length=1, description="File path in repo")
+    content: str = Field(..., description="File content")
+    message: str = Field("Update note via proposal", description="Commit message")
+    authorName: str = Field("Garden Guest", description="Git author name")
+    proposalId: Optional[str] = Field(None, description="Proposal ID for tracking")
+
+
+class GitCommitResponse(BaseModel):
+    success: bool
+    sha: Optional[str] = None
+    url: Optional[str] = None
+    error: Optional[str] = None
+    hint: Optional[str] = None
+
+
+@router.post("/git/commit", response_model=GitCommitResponse)
+async def git_commit(
+    request: GitCommitRequest,
+    _: None = Depends(require_service_token),
+):
+    """
+    Commit a file to GitHub repository.
+    Called by Cloudflare Worker after accepting a proposal.
+    """
+    if not github_service.configured:
+        return GitCommitResponse(
+            success=False,
+            error="GitHub integration not configured",
+            hint="Set GITHUB_TOKEN via /api/github/config or environment variables",
+        )
+    
+    author_email = f"{request.authorName.lower().replace(' ', '.')}@garden.guest"
+    
+    result = await github_service.commit_file(
+        path=request.path,
+        content=request.content,
+        message=request.message,
+        author_name=request.authorName,
+        author_email=author_email,
+    )
+    
+    return GitCommitResponse(**result)
+
+
+class GitHubConfigRequest(BaseModel):
+    token: str = Field(..., min_length=1)
+    repo: str = Field(..., min_length=1)
+    branch: str = Field("main")
+
+
+class GitHubStatusResponse(BaseModel):
+    configured: bool
+    repo: Optional[str] = None
+    branch: Optional[str] = None
+    valid: Optional[bool] = None
+    error: Optional[str] = None
+
+
+@router.post("/api/github/config")
+async def save_github_config(request: GitHubConfigRequest):
+    """Save GitHub configuration (token stored in env/secrets)."""
+    import json
+    
+    github_service.configure(request.token, request.repo, request.branch)
+    
+    valid, msg = await github_service.validate_token()
+    if not valid:
+        return {"success": False, "error": msg}
+    
+    config.GITHUB_CONFIG_FILE.parent.mkdir(parents=True, exist_ok=True)
+    config.GITHUB_CONFIG_FILE.write_text(json.dumps({
+        "token": request.token,
+        "repo": request.repo,
+        "branch": request.branch,
+    }))
+    
+    return {"success": True, "message": "GitHub configured successfully"}
+
+
+@router.get("/api/github/status", response_model=GitHubStatusResponse)
+async def get_github_status():
+    """Check if GitHub is configured."""
+    configured = github_service.configured
+    
+    if not configured:
+        return GitHubStatusResponse(configured=False)
+    
+    valid, error = await github_service.validate_token()
+    
+    return GitHubStatusResponse(
+        configured=True,
+        repo=github_service.repo,
+        branch=github_service.branch,
+        valid=valid,
+        error=error if not valid else None,
     )

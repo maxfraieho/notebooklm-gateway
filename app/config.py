@@ -76,6 +76,12 @@ JOB_TIMEOUT_SECONDS = int(os.getenv("JOB_TIMEOUT_SECONDS", "120"))  # 2 min per 
 IDEMPOTENCY_TTL_SECONDS = int(os.getenv("IDEMPOTENCY_TTL_SECONDS", "3600"))  # 1 hour
 IDEMPOTENCY_FILE = DATA_DIR / "idempotency.json"
 
+# GitHub Integration
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+GITHUB_REPO = os.getenv("GITHUB_REPO", "maxfraieho/garden-bloom")
+GITHUB_BRANCH = os.getenv("GITHUB_BRANCH", "main")
+GITHUB_CONFIG_FILE = DATA_DIR / "github_config.json"
+
 # NotebookLM library expects storage state at this path
 NOTEBOOKLM_LIBRARY_PATH = Path.home() / ".notebooklm" / "storage_state.json"
 

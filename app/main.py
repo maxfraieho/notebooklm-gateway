@@ -26,6 +26,23 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def load_github_config():
+    """Load GitHub config from file on startup."""
+    import json
+    if config.GITHUB_CONFIG_FILE.exists():
+        try:
+            cfg = json.loads(config.GITHUB_CONFIG_FILE.read_text())
+            import os
+            os.environ.setdefault("GITHUB_TOKEN", cfg.get("token", ""))
+            os.environ.setdefault("GITHUB_REPO", cfg.get("repo", ""))
+            os.environ.setdefault("GITHUB_BRANCH", cfg.get("branch", "main"))
+            logger.info(f"GitHub config loaded: repo={cfg.get('repo', '')}")
+            return True
+        except Exception as e:
+            logger.warning(f"Failed to load GitHub config: {e}")
+    return False
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Application lifespan handler."""
@@ -35,6 +52,11 @@ async def lifespan(app: FastAPI):
     # Log MinIO configuration (masked)
     access_key_prefix = config.MINIO_ACCESS_KEY[:4] + "****" if len(config.MINIO_ACCESS_KEY) > 4 else "****"
     logger.info(f"MinIO config: endpoint={config.MINIO_ENDPOINT}, access_key={access_key_prefix}, bucket={config.MINIO_BUCKET}, secure={config.MINIO_SECURE}")
+    
+    # Load GitHub config from file
+    load_github_config()
+    github_configured = bool(config.GITHUB_TOKEN or config.GITHUB_CONFIG_FILE.exists())
+    logger.info(f"GitHub config: configured={github_configured}, repo={config.GITHUB_REPO}")
     
     config.ensure_dirs()
     
