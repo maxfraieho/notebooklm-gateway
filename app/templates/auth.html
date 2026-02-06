@@ -148,15 +148,62 @@
             </ol>
         </div>
 
-        <form action="/auth/upload" method="post" enctype="multipart/form-data">
+        <form id="uploadForm" enctype="multipart/form-data">
             <label for="file">Select storage_state.json:</label>
             <input type="file" id="file" name="file" accept=".json,application/json" required>
-            <button type="submit">Upload and Validate</button>
+            <button type="submit" id="submitBtn">Upload and Validate</button>
+            <div id="status" style="display:none; margin-top:12px; padding:12px; border-radius:8px; font-size:14px;"></div>
         </form>
 
         <div class="status-link">
             <a href="/auth/status">Check current auth status (JSON)</a>
         </div>
     </div>
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('status');
+            const fileInput = document.getElementById('file');
+            
+            if (!fileInput.files.length) return;
+            
+            btn.disabled = true;
+            btn.textContent = 'Uploading...';
+            status.style.display = 'block';
+            status.style.background = '#e3f2fd';
+            status.style.color = '#1565c0';
+            status.textContent = 'Uploading and validating...';
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            
+            try {
+                const resp = await fetch('/auth/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const html = await resp.text();
+                if (html.includes('Authentication Successful') || html.includes('success')) {
+                    status.style.background = '#e8f5e9';
+                    status.style.color = '#2e7d32';
+                    status.textContent = 'Authentication successful! Reloading...';
+                    setTimeout(() => window.location.reload(), 1500);
+                } else {
+                    const match = html.match(/class="message"[^>]*>([^<]+)/);
+                    status.style.background = '#fce4ec';
+                    status.style.color = '#c62828';
+                    status.textContent = match ? match[1] : 'Upload failed. Check server logs.';
+                }
+            } catch (err) {
+                status.style.background = '#fce4ec';
+                status.style.color = '#c62828';
+                status.textContent = 'Network error: ' + err.message;
+            }
+            
+            btn.disabled = false;
+            btn.textContent = 'Upload and Validate';
+        });
+    </script>
 </body>
 </html>
