@@ -692,6 +692,63 @@ async def git_commit(
         return GitCommitResponse(success=False, error=str(e), hint="Unexpected error during git commit")
 
 
+class GitDeleteRequest(BaseModel):
+    path: str = Field(..., min_length=1, description="File path in repo to delete")
+    message: str = Field("", description="Commit message for deletion")
+
+
+class GitDeleteResponse(BaseModel):
+    success: bool
+    sha: Optional[str] = None
+    path: Optional[str] = None
+    error: Optional[str] = None
+    status: Optional[int] = None
+    hint: Optional[str] = None
+
+
+@router.post("/git/delete", response_model=GitDeleteResponse)
+async def git_delete(
+    request: GitDeleteRequest,
+    _: None = Depends(require_service_token),
+):
+    """
+    Delete a file from GitHub repository.
+    Called by Cloudflare Worker when deleting a note.
+    """
+    logger.info(f"[git_delete] Received request for path: {request.path}")
+
+    if not github_service.configured:
+        logger.error("[git_delete] GitHub not configured")
+        return GitDeleteResponse(
+            success=False,
+            error="GitHub integration not configured",
+            hint="Set GITHUB_TOKEN via /api/github/config or environment variables",
+        )
+
+    valid, error = validate_git_path(request.path)
+    if not valid:
+        logger.warning(f"[git_delete] Path validation failed: {error}")
+        return GitDeleteResponse(success=False, error=error)
+
+    commit_message = request.message or f"docs: delete {request.path}"
+
+    try:
+        result = await github_service.delete_file(
+            path=request.path,
+            message=commit_message,
+        )
+
+        if result.get("success"):
+            logger.info(f"[git_delete] File deleted: {request.path}, sha={result.get('sha', 'unknown')}")
+        else:
+            logger.error(f"[git_delete] Delete failed: {result.get('error')} (status={result.get('status')})")
+
+        return GitDeleteResponse(**result)
+    except Exception as e:
+        logger.exception(f"[git_delete] Exception: {e}")
+        return GitDeleteResponse(success=False, error=str(e), hint="Unexpected error during git delete")
+
+
 @router.get("/git/status")
 async def git_status(
     _: None = Depends(require_service_token),

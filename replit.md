@@ -56,6 +56,9 @@ python -m uvicorn app.main:app --host 0.0.0.0 --port 5000
 - `/v1/jobs/{job_id}` - Poll import job status
 - `/v1/chat` - Worker/UI chat endpoint (requires Bearer token)
 - `/v1/health` - Service-to-service health check (requires Bearer token)
+- `/v1/git/commit` - Commit file to GitHub (requires Bearer token)
+- `/v1/git/delete` - Delete file from GitHub (requires Bearer token)
+- `/v1/git/status` - GitHub integration diagnostics (requires Bearer token)
 
 ## Configuration
 Environment variables are configured in `.env.example`. Key settings:

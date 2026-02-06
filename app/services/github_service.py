@@ -158,4 +158,57 @@ class GitHubService:
                 return {"success": False, "error": error, "status": resp.status_code}
 
 
+    async def delete_file(
+        self,
+        path: str,
+        message: str,
+        author_name: str = "Garden Bot",
+        author_email: str = "bot@garden.local",
+    ) -> dict:
+        if not self.configured:
+            return {"success": False, "error": "GitHub not configured"}
+
+        from urllib.parse import quote
+        encoded_path = quote(path, safe='/')
+        url = f"{GITHUB_API}/repos/{self.repo}/contents/{encoded_path}"
+
+        sha = await self.get_file_sha(path)
+        if not sha:
+            return {"success": False, "error": "File not found in repository", "path": path, "status": 404}
+
+        payload = {
+            "message": message,
+            "sha": sha,
+            "branch": self.branch,
+            "committer": {
+                "name": author_name,
+                "email": author_email,
+            },
+        }
+
+        async with httpx.AsyncClient() as client:
+            resp = await client.request("DELETE", url, headers=self.headers, json=payload)
+
+            if resp.status_code in (200, 204):
+                try:
+                    data = resp.json() if resp.status_code == 200 else {}
+                    commit_sha = data.get("commit", {}).get("sha")
+                    logger.info(f"[GitHub] Deleted {path} -> commit {commit_sha[:7] if commit_sha else 'ok'}")
+                    return {"success": True, "sha": commit_sha, "path": path}
+                except Exception:
+                    return {"success": True, "sha": None, "path": path}
+            else:
+                try:
+                    error = resp.json().get("message", "Unknown error")
+                except Exception:
+                    error = f"GitHub API error: {resp.status_code}"
+                logger.error(f"[GitHub] Delete failed: {resp.status_code} - {error}")
+                return {
+                    "success": False,
+                    "error": error,
+                    "status": resp.status_code,
+                    "hint": "Check file path and permissions",
+                }
+
+
 github_service = GitHubService()
