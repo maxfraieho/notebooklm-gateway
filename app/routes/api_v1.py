@@ -467,7 +467,7 @@ class HistoryMessage(BaseModel):
 
 
 class WorkerChatRequest(BaseModel):
-    notebookUrl: str = Field(..., description="NotebookLM URL with notebook ID")
+    notebook_url: str = Field(..., alias="notebookUrl", description="NotebookLM URL with notebook ID")
     message: str = Field(..., min_length=1, description="User's question")
     kind: Literal["answer", "summary", "study_guide", "flashcards"] = Field(
         "answer", description="Type of response to generate"
@@ -475,6 +475,8 @@ class WorkerChatRequest(BaseModel):
     history: list[HistoryMessage] = Field(
         default_factory=list, description="Conversation history (max 12 messages)"
     )
+
+    model_config = {"populate_by_name": True}
 
 
 class WorkerChatResponse(BaseModel):
@@ -538,7 +540,7 @@ async def worker_chat(
     """
     request_id = str(uuid.uuid4())
 
-    notebook_id = parse_notebook_url(request.notebookUrl)
+    notebook_id = parse_notebook_url(request.notebook_url)
     system_prompt = KIND_SYSTEM_PROMPTS.get(request.kind, "")
     full_question = build_full_question(request.message, request.history, system_prompt)
 
