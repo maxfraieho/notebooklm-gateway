@@ -60,13 +60,16 @@ class GitHubService:
     
     async def get_file_sha(self, path: str) -> Optional[str]:
         """Get current file SHA (required for updates)."""
-        url = f"{GITHUB_API}/repos/{self.repo}/contents/{path}"
+        from urllib.parse import quote
+        encoded_path = quote(path, safe='/')
+        url = f"{GITHUB_API}/repos/{self.repo}/contents/{encoded_path}"
         params = {"ref": self.branch}
         
         async with httpx.AsyncClient() as client:
             resp = await client.get(url, headers=self.headers, params=params)
             if resp.status_code == 200:
                 return resp.json().get("sha")
+            logger.debug(f"[GitHub] get_file_sha {path}: {resp.status_code}")
             return None
     
     async def validate_token(self) -> tuple[bool, str]:
@@ -110,7 +113,9 @@ class GitHubService:
         if not self.configured:
             return {"success": False, "error": "GitHub not configured"}
         
-        url = f"{GITHUB_API}/repos/{self.repo}/contents/{path}"
+        from urllib.parse import quote
+        encoded_path = quote(path, safe='/')
+        url = f"{GITHUB_API}/repos/{self.repo}/contents/{encoded_path}"
         
         sha = await self.get_file_sha(path)
         

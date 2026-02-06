@@ -652,28 +652,71 @@ async def git_commit(
     Commit a file to GitHub repository.
     Called by Cloudflare Worker after accepting a proposal.
     """
+    logger.info(f"[git_commit] Received request for path: {request.path}")
+    logger.info(f"[git_commit] Content length: {len(request.content)} chars, message: {request.message}")
+
     if not github_service.configured:
+        logger.error("[git_commit] GitHub not configured")
         return GitCommitResponse(
             success=False,
             error="GitHub integration not configured",
             hint="Set GITHUB_TOKEN via /api/github/config or environment variables",
         )
-    
+
+    logger.info(f"[git_commit] Using repo: {github_service.repo}, branch: {github_service.branch}")
+
     valid, error = validate_git_path(request.path)
     if not valid:
+        logger.warning(f"[git_commit] Path validation failed: {error}")
         return GitCommitResponse(success=False, error=error)
-    
+
     author_email = f"{request.authorName.lower().replace(' ', '.')}@garden.guest"
-    
-    result = await github_service.commit_file(
-        path=request.path,
-        content=request.content,
-        message=request.message,
-        author_name=request.authorName,
-        author_email=author_email,
-    )
-    
-    return GitCommitResponse(**result)
+
+    try:
+        result = await github_service.commit_file(
+            path=request.path,
+            content=request.content,
+            message=request.message,
+            author_name=request.authorName,
+            author_email=author_email,
+        )
+
+        if result.get("success"):
+            logger.info(f"[git_commit] Commit created: sha={result.get('sha', 'unknown')[:7]}")
+        else:
+            logger.error(f"[git_commit] Commit failed: {result.get('error')} (status={result.get('status')})")
+
+        return GitCommitResponse(**result)
+    except Exception as e:
+        logger.exception(f"[git_commit] Exception: {e}")
+        return GitCommitResponse(success=False, error=str(e), hint="Unexpected error during git commit")
+
+
+@router.get("/git/status")
+async def git_status(
+    _: None = Depends(require_service_token),
+):
+    """
+    Check GitHub integration status and token validity.
+    Useful for diagnosing commit failures.
+    """
+    if not github_service.configured:
+        return {
+            "configured": False,
+            "error": "GitHub not configured. Use /api/github/config or admin panel.",
+        }
+
+    valid, msg = await github_service.validate_token()
+    token_preview = github_service.token[:4] + "****" if len(github_service.token) > 4 else "****"
+
+    return {
+        "configured": True,
+        "repo": github_service.repo,
+        "branch": github_service.branch,
+        "token_preview": token_preview,
+        "token_valid": valid,
+        "token_error": msg if not valid else None,
+    }
 
 
 class GitHubConfigRequest(BaseModel):
