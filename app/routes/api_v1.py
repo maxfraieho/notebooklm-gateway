@@ -751,17 +751,33 @@ async def git_delete(
 
 @router.get("/git/status")
 async def git_status(
+    path: Optional[str] = None,
     _: None = Depends(require_service_token),
 ):
     """
-    Check GitHub integration status and token validity.
-    Useful for diagnosing commit failures.
+    Check GitHub integration status, or check if a specific file exists.
+
+    Without ?path= : returns GitHub config/token diagnostics.
+    With ?path=src/site/notes/... : checks if file exists in repo.
     """
     if not github_service.configured:
         return {
             "configured": False,
             "error": "GitHub not configured. Use /api/github/config or admin panel.",
         }
+
+    if path:
+        valid, error = validate_git_path(path)
+        if not valid:
+            raise ValidationError(message=error, details={"path": path})
+
+        logger.info(f"[git_status] Checking file existence: {path}")
+        sha = await github_service.get_file_sha(path)
+
+        if sha:
+            return {"exists": True, "path": path, "sha": sha}
+        else:
+            return {"exists": False, "path": path}
 
     valid, msg = await github_service.validate_token()
     token_preview = github_service.token[:4] + "****" if len(github_service.token) > 4 else "****"
