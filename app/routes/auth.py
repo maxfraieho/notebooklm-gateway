@@ -4,7 +4,7 @@ Authentication routes - web interface for uploading storage_state.json.
 import json
 import logging
 from fastapi import APIRouter, Request, UploadFile, File, HTTPException
-from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from pathlib import Path
 
@@ -16,62 +16,42 @@ logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
-# Templates
 templates_dir = Path(__file__).parent.parent / "templates"
 templates = Jinja2Templates(directory=str(templates_dir))
 
 
 @router.get("", response_class=HTMLResponse)
-async def auth_page(request: Request):
-    """Display auth page with upload form."""
-    return templates.TemplateResponse(
-        "auth.html",
-        {"request": request}
-    )
+async def auth_page():
+    """Redirect to main admin panel."""
+    return RedirectResponse(url="/", status_code=302)
 
 
 @router.post("/upload")
 async def upload_storage_state(
-    request: Request,
     file: UploadFile = File(...),
 ):
     """
     Upload storage_state.json and validate it.
-
-    Validates:
-    - File size <= 5MB
-    - Valid JSON format
-    - Authentication works (can list notebooks)
+    Returns JSON response for AJAX calls.
     """
-    # Check file size
     content = await file.read()
     if len(content) > config.MAX_STORAGE_STATE_SIZE:
-        return templates.TemplateResponse(
-            "auth_result.html",
-            {
-                "request": request,
-                "success": False,
-                "message": f"File too large. Maximum size is {config.MAX_STORAGE_STATE_SIZE // (1024*1024)}MB",
-            }
+        return JSONResponse(
+            status_code=400,
+            content={"success": False, "message": f"File too large. Maximum size is {config.MAX_STORAGE_STATE_SIZE // (1024*1024)}MB"}
         )
 
-    # Validate JSON format
     try:
         data = json.loads(content)
         if not isinstance(data, dict):
             raise ValueError("Root must be an object")
     except (json.JSONDecodeError, ValueError) as e:
         logger.warning(f"Invalid JSON uploaded: {e}")
-        return templates.TemplateResponse(
-            "auth_result.html",
-            {
-                "request": request,
-                "success": False,
-                "message": "Invalid JSON format. Please upload a valid storage_state.json",
-            }
+        return JSONResponse(
+            status_code=400,
+            content={"success": False, "message": "Invalid JSON format. Please upload a valid storage_state.json"}
         )
 
-    # Save the file
     try:
         config.STORAGE_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
         config.STORAGE_STATE_PATH.write_bytes(content)
@@ -80,39 +60,21 @@ async def upload_storage_state(
         logger.info("storage_state.json saved, synced, and persisted to DB")
     except Exception as e:
         logger.error(f"Failed to save storage_state.json: {e}")
-        return templates.TemplateResponse(
-            "auth_result.html",
-            {
-                "request": request,
-                "success": False,
-                "message": "Failed to save file. Check server permissions.",
-            }
+        return JSONResponse(
+            status_code=500,
+            content={"success": False, "message": "Failed to save file. Check server permissions."}
         )
 
-    # Validate authentication by listing notebooks
     auth_status = await notebooklm_service.validate_auth()
 
     if auth_status.ok:
-        return templates.TemplateResponse(
-            "auth_result.html",
-            {
-                "request": request,
-                "success": True,
-                "message": f"Authentication successful! Found {auth_status.notebook_count} notebooks.",
-                "notebook_count": auth_status.notebook_count,
-            }
-        )
+        return {"success": True, "message": f"Authentication successful! Found {auth_status.notebook_count} notebooks.", "notebook_count": auth_status.notebook_count}
     else:
-        # Remove invalid file and DB entry
         config.STORAGE_STATE_PATH.unlink(missing_ok=True)
         persistent_store.delete("storage_state_json")
-        return templates.TemplateResponse(
-            "auth_result.html",
-            {
-                "request": request,
-                "success": False,
-                "message": f"Authentication failed: {auth_status.message}. Please re-login and try again.",
-            }
+        return JSONResponse(
+            status_code=401,
+            content={"success": False, "message": f"Authentication failed: {auth_status.message}. Please re-login and try again."}
         )
 
 
@@ -120,23 +82,17 @@ async def upload_storage_state(
 async def auth_status():
     """
     Check authentication status.
-
-    Returns:
-        JSON with ok, message, and optionally notebook_count
+    Returns JSON with ok, message, and optionally notebook_count.
     """
-    auth_status = await notebooklm_service.validate_auth()
-    return {
-        "ok": auth_status.ok,
-        "message": auth_status.message,
-        "notebook_count": auth_status.notebook_count,
-    }
+    if not config.STORAGE_STATE_PATH.exists():
+        return {"ok": False, "message": "storage_state.json not found", "notebook_count": None}
+
+    return {"ok": True, "message": "storage_state.json loaded", "notebook_count": None}
 
 
 @router.delete("/logout")
 async def logout():
-    """
-    Remove stored credentials.
-    """
+    """Remove stored credentials."""
     removed = False
     if config.STORAGE_STATE_PATH.exists():
         config.STORAGE_STATE_PATH.unlink()

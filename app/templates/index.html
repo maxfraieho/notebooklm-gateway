@@ -183,17 +183,12 @@
             <h2>NotebookLM Authentication</h2>
             <p>Upload your Google session cookies to enable API access</p>
 
-            <div class="warning" style="margin-bottom: 20px;">
-                <strong>Security Notice:</strong> This server has no authentication.
-                Do not expose to public internet. For internal/testing use only.
-            </div>
-
-            <form id="notebooklm-form" action="/auth/upload" method="post" enctype="multipart/form-data">
+            <form id="notebooklm-form">
                 <div class="form-group">
                     <label for="file">Select storage_state.json:</label>
                     <input type="file" id="file" name="file" accept=".json,application/json" required>
                 </div>
-                <button type="submit" class="btn-primary">Upload and Validate</button>
+                <button type="submit" class="btn-primary" id="upload-btn">Upload and Validate</button>
             </form>
 
             <div id="notebooklm-status" class="status-box"></div>
@@ -224,22 +219,22 @@
             <form id="github-form">
                 <div class="form-group">
                     <label for="github-token">Personal Access Token (PAT)</label>
-                    <input type="password" id="github-token" name="github_token" 
+                    <input type="password" id="github-token" name="github_token"
                            placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
-                    <small>Fine-grained PAT with Contents:write permission. 
+                    <small>Fine-grained PAT with Contents:write permission.
                         <a href="https://github.com/settings/tokens?type=beta" target="_blank">Create token</a>
                     </small>
                 </div>
 
                 <div class="form-group">
                     <label for="github-repo">Repository (owner/repo)</label>
-                    <input type="text" id="github-repo" name="github_repo" 
+                    <input type="text" id="github-repo" name="github_repo"
                            placeholder="owner/repo" />
                 </div>
 
                 <div class="form-group">
                     <label for="github-branch">Branch</label>
-                    <input type="text" id="github-branch" name="github_branch" 
+                    <input type="text" id="github-branch" name="github_branch"
                            placeholder="main" value="main" />
                 </div>
 
@@ -271,6 +266,46 @@
     </div>
 
     <script>
+        document.getElementById('notebooklm-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('upload-btn');
+            const statusEl = document.getElementById('notebooklm-status');
+            const fileInput = document.getElementById('file');
+
+            if (!fileInput.files.length) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Uploading & validating...';
+            statusEl.textContent = 'Uploading and validating authentication...';
+            statusEl.className = 'status-box pending';
+            statusEl.style.display = 'block';
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            try {
+                const resp = await fetch('/auth/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await resp.json();
+
+                if (data.success) {
+                    statusEl.textContent = data.message;
+                    statusEl.className = 'status-box success';
+                } else {
+                    statusEl.textContent = data.message || 'Upload failed';
+                    statusEl.className = 'status-box error';
+                }
+            } catch (err) {
+                statusEl.textContent = 'Network error: ' + err.message;
+                statusEl.className = 'status-box error';
+            }
+
+            btn.disabled = false;
+            btn.textContent = 'Upload and Validate';
+        });
+
         document.getElementById('github-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const statusEl = document.getElementById('github-status');
@@ -327,8 +362,8 @@
                 const data = await resp.json();
                 const statusEl = document.getElementById('notebooklm-status');
 
-                if (data.authenticated) {
-                    statusEl.textContent = 'NotebookLM authenticated';
+                if (data.ok) {
+                    statusEl.textContent = 'NotebookLM authenticated (storage_state.json loaded)';
                     statusEl.className = 'status-box success';
                     statusEl.style.display = 'block';
                 }
