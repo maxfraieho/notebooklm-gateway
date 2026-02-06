@@ -33,6 +33,7 @@ notebooklm-backend/
 ## Tech Stack
 - Python 3.11
 - FastAPI + Uvicorn
+- PostgreSQL (persistent key-value store for auth & config)
 - Jinja2 (templates)
 - Playwright (browser automation for NotebookLM)
 - MinIO client (S3-compatible storage)
@@ -73,6 +74,13 @@ Environment variables are configured in `.env.example`. Key settings:
 - Backend downloads from MinIO and uploads to NotebookLM
 
 ## Recent Changes
+- 2026-02-06: Added PostgreSQL persistent storage for storage_state.json and GitHub config
+  - Data survives republish/restart - no need to re-upload storage_state.json each time
+  - Uses kv_store table in PostgreSQL for key-value persistence
+  - On startup, restores storage_state.json and GitHub config from DB automatically
+  - Auth upload and GitHub config save now persist to DB alongside file system
+- 2026-02-06: Fixed WorkerChatRequest model - accepts both snake_case (notebook_url) and camelCase (notebookUrl)
+- 2026-02-06: Added NOTEBOOKLM_SERVICE_TOKEN secret for service-to-service auth
 - 2026-02-05: Added GitHub integration for auto-committing accepted proposals
   - Target repo: `maxfraieho/project-genesis`
   - New endpoint: `/v1/git/commit` - Commit files to GitHub (requires service token)

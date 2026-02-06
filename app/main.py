@@ -20,6 +20,7 @@ from app import config
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 from app.routes import auth, api_v1
 from app.services import jobs
+from app.services import persistent_store
 from app.errors import APIError, api_error_handler, http_exception_handler, generic_exception_handler
 
 # Configure logging
@@ -30,8 +31,44 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def restore_from_db():
+    """Restore storage_state.json and GitHub config from database on startup."""
+    restored = []
+
+    storage_data = persistent_store.get("storage_state_json")
+    if storage_data:
+        try:
+            config.STORAGE_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+            config.STORAGE_STATE_PATH.write_text(storage_data)
+            config.sync_storage_state()
+            restored.append("storage_state.json")
+        except Exception as e:
+            logger.error(f"Failed to restore storage_state.json from DB: {e}")
+
+    github_cfg = persistent_store.get_json("github_config")
+    if github_cfg:
+        try:
+            import os
+            from app.services.github_service import github_service
+            token = github_cfg.get("token", "")
+            repo = github_cfg.get("repo", "")
+            branch = github_cfg.get("branch", "main")
+            if token and repo:
+                github_service.configure(token, repo, branch)
+                os.environ["GITHUB_TOKEN"] = token
+                os.environ["GITHUB_REPO"] = repo
+                os.environ["GITHUB_BRANCH"] = branch
+                restored.append(f"github({repo})")
+        except Exception as e:
+            logger.error(f"Failed to restore GitHub config from DB: {e}")
+
+    if restored:
+        logger.info(f"Restored from DB: {', '.join(restored)}")
+    return restored
+
+
 def load_github_config():
-    """Load GitHub config from file on startup."""
+    """Load GitHub config from file on startup (fallback)."""
     import json
     if config.GITHUB_CONFIG_FILE.exists():
         try:
@@ -40,7 +77,7 @@ def load_github_config():
             os.environ.setdefault("GITHUB_TOKEN", cfg.get("token", ""))
             os.environ.setdefault("GITHUB_REPO", cfg.get("repo", ""))
             os.environ.setdefault("GITHUB_BRANCH", cfg.get("branch", "main"))
-            logger.info(f"GitHub config loaded: repo={cfg.get('repo', '')}")
+            logger.info(f"GitHub config loaded from file: repo={cfg.get('repo', '')}")
             return True
         except Exception as e:
             logger.warning(f"Failed to load GitHub config: {e}")
@@ -60,8 +97,13 @@ async def lifespan(app: FastAPI):
     # Ensure directories exist before loading configs
     config.ensure_dirs()
     
-    # Load GitHub config from file
-    load_github_config()
+    # Init persistent DB store and restore data
+    persistent_store.init_db()
+    restored = restore_from_db()
+    
+    # Load GitHub config from file (fallback if not restored from DB)
+    if not any("github" in r for r in restored):
+        load_github_config()
     github_configured = bool(config.GITHUB_TOKEN or config.GITHUB_CONFIG_FILE.exists())
     logger.info(f"GitHub config: configured={github_configured}, repo={config.GITHUB_REPO}")
     
@@ -240,6 +282,12 @@ async def save_github_config_public(request: Request):
         "repo": repo,
         "branch": branch,
     }))
+    
+    persistent_store.put_json("github_config", {
+        "token": token,
+        "repo": repo,
+        "branch": branch,
+    })
     
     return {"success": True, "repo": repo}
 

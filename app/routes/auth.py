@@ -10,6 +10,7 @@ from pathlib import Path
 
 from app import config
 from app.services import notebooklm_service
+from app.services import persistent_store
 
 logger = logging.getLogger(__name__)
 
@@ -74,9 +75,9 @@ async def upload_storage_state(
     try:
         config.STORAGE_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
         config.STORAGE_STATE_PATH.write_bytes(content)
-        # Sync to library location
         config.sync_storage_state()
-        logger.info("storage_state.json saved and synced successfully")
+        persistent_store.put("storage_state_json", content.decode("utf-8"))
+        logger.info("storage_state.json saved, synced, and persisted to DB")
     except Exception as e:
         logger.error(f"Failed to save storage_state.json: {e}")
         return templates.TemplateResponse(
@@ -102,8 +103,9 @@ async def upload_storage_state(
             }
         )
     else:
-        # Remove invalid file
+        # Remove invalid file and DB entry
         config.STORAGE_STATE_PATH.unlink(missing_ok=True)
+        persistent_store.delete("storage_state_json")
         return templates.TemplateResponse(
             "auth_result.html",
             {
@@ -142,7 +144,8 @@ async def logout():
     if config.NOTEBOOKLM_LIBRARY_PATH.exists():
         config.NOTEBOOKLM_LIBRARY_PATH.unlink()
         removed = True
+    persistent_store.delete("storage_state_json")
     if removed:
-        logger.info("Credentials removed from both storage locations")
+        logger.info("Credentials removed from all storage locations (file + DB)")
         return {"ok": True, "message": "Logged out successfully"}
     return {"ok": True, "message": "No credentials to remove"}

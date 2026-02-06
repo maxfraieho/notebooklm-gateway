@@ -33,3 +33,4 @@ python-dotenv==1.0.1
 python-multipart==0.0.19
 uvicorn[standard]==0.34.0
 httpx
+psycopg2-binary
