@@ -2,6 +2,7 @@
 REST API v1 for NotebookLM operations.
 """
 import asyncio
+import json
 import logging
 import re
 import uuid
@@ -747,6 +748,145 @@ async def git_delete(
     except Exception as e:
         logger.exception(f"[git_delete] Exception: {e}")
         return GitDeleteResponse(success=False, error=str(e), hint="Unexpected error during git delete")
+
+
+DRAKON_ID_PATTERN = re.compile(r"^[a-zA-Z0-9_-]+$")
+
+
+class DrakonCommitRequest(BaseModel):
+    folderSlug: Optional[str] = Field(None, description="Folder path e.g. 'exodus.pp.ua/article-name' or omit for root diagrams")
+    diagramId: str = Field(..., min_length=1, description="Diagram ID (filename without extension)")
+    diagram: dict = Field(..., description="Full DRAKON diagram JSON object")
+    name: Optional[str] = Field(None, description="Human-readable name for commit message")
+    isNew: bool = Field(False, description="Whether this is a new diagram")
+
+
+class DrakonCommitResponse(BaseModel):
+    success: bool
+    sha: Optional[str] = None
+    url: Optional[str] = None
+    path: Optional[str] = None
+    error: Optional[str] = None
+
+
+class DrakonDeleteResponse(BaseModel):
+    success: bool
+    sha: Optional[str] = None
+    path: Optional[str] = None
+    error: Optional[str] = None
+
+
+def build_drakon_path(folder_slug: Optional[str], diagram_id: str) -> str:
+    if folder_slug:
+        return f"src/site/notes/{folder_slug}/diagrams/{diagram_id}.drakon.json"
+    return f"src/site/notes/diagrams/{diagram_id}.drakon.json"
+
+
+@router.post("/drakon/commit", response_model=DrakonCommitResponse)
+async def drakon_commit(
+    request: DrakonCommitRequest,
+    _: None = Depends(require_service_token),
+):
+    """
+    Commit a DRAKON diagram JSON file to GitHub repository.
+    """
+    if not DRAKON_ID_PATTERN.match(request.diagramId):
+        return DrakonCommitResponse(
+            success=False,
+            error="Invalid diagramId. Only alphanumeric, dashes and underscores allowed.",
+        )
+
+    if not github_service.configured:
+        return DrakonCommitResponse(
+            success=False,
+            error="GitHub integration not configured",
+        )
+
+    file_path = build_drakon_path(request.folderSlug, request.diagramId)
+    logger.info(f"[drakon_commit] Path: {file_path}, isNew: {request.isNew}")
+
+    valid, error = validate_git_path(file_path)
+    if not valid:
+        return DrakonCommitResponse(success=False, error=error)
+
+    content = json.dumps(request.diagram, indent=2, ensure_ascii=False)
+    label = request.name or request.diagramId
+    action = "create" if request.isNew else "update"
+    commit_message = f"chore(drakon): {action} {label}"
+
+    try:
+        result = await github_service.commit_file(
+            path=file_path,
+            content=content,
+            message=commit_message,
+            author_name="Garden Editor",
+            author_email="editor@garden.local",
+        )
+
+        if result.get("success"):
+            logger.info(f"[drakon_commit] Committed: {file_path} -> {result.get('sha', '?')[:7]}")
+        else:
+            logger.error(f"[drakon_commit] Failed: {result.get('error')}")
+
+        return DrakonCommitResponse(
+            success=result.get("success", False),
+            sha=result.get("sha"),
+            url=result.get("url"),
+            path=file_path,
+            error=result.get("error"),
+        )
+    except Exception as e:
+        logger.exception(f"[drakon_commit] Exception: {e}")
+        return DrakonCommitResponse(success=False, error=str(e))
+
+
+@router.delete("/drakon/{folder_slug:path}/{diagram_id}", response_model=DrakonDeleteResponse)
+async def drakon_delete(
+    folder_slug: str,
+    diagram_id: str,
+    _: None = Depends(require_service_token),
+):
+    """
+    Delete a DRAKON diagram from GitHub repository.
+    """
+    if not DRAKON_ID_PATTERN.match(diagram_id):
+        return DrakonDeleteResponse(
+            success=False,
+            error="Invalid diagramId. Only alphanumeric, dashes and underscores allowed.",
+        )
+
+    if not github_service.configured:
+        return DrakonDeleteResponse(success=False, error="GitHub integration not configured")
+
+    file_path = build_drakon_path(folder_slug, diagram_id)
+    logger.info(f"[drakon_delete] Path: {file_path}")
+
+    valid, error = validate_git_path(file_path)
+    if not valid:
+        return DrakonDeleteResponse(success=False, error=error)
+
+    commit_message = f"chore(drakon): delete {diagram_id}"
+
+    try:
+        result = await github_service.delete_file(
+            path=file_path,
+            message=commit_message,
+        )
+
+        if result.get("success"):
+            logger.info(f"[drakon_delete] Deleted: {file_path}")
+        else:
+            logger.error(f"[drakon_delete] Failed: {result.get('error')}")
+
+        return DrakonDeleteResponse(
+            success=result.get("success", False),
+            sha=result.get("sha"),
+            path=file_path,
+            error=result.get("error"),
+        )
+    except Exception as e:
+        logger.exception(f"[drakon_delete] Exception: {e}")
+        return DrakonDeleteResponse(success=False, error=str(e))
 
 
 @router.get("/git/status")

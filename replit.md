@@ -58,7 +58,9 @@ python -m uvicorn app.main:app --host 0.0.0.0 --port 5000
 - `/v1/health` - Service-to-service health check (requires Bearer token)
 - `/v1/git/commit` - Commit file to GitHub (requires Bearer token)
 - `/v1/git/delete` - Delete file from GitHub (requires Bearer token)
-- `/v1/git/status` - GitHub integration diagnostics (requires Bearer token)
+- `/v1/git/status` - GitHub integration diagnostics + file existence check (requires Bearer token)
+- `/v1/drakon/commit` - Commit DRAKON diagram JSON to GitHub (requires Bearer token)
+- `/v1/drakon/{folderSlug}/{diagramId}` - DELETE: Remove DRAKON diagram from GitHub (requires Bearer token)
 
 ## Configuration
 Environment variables are configured in `.env.example`. Key settings:
