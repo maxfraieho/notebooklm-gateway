@@ -44,6 +44,14 @@ def restore_from_db():
             restored.append("storage_state.json")
         except Exception as e:
             logger.error(f"Failed to restore storage_state.json from DB: {e}")
+    elif config.STORAGE_STATE_PATH.exists():
+        try:
+            file_data = config.STORAGE_STATE_PATH.read_text()
+            persistent_store.put("storage_state_json", file_data)
+            config.sync_storage_state()
+            restored.append("storage_state.json (from file, saved to DB)")
+        except Exception as e:
+            logger.error(f"Failed to seed storage_state.json to DB from file: {e}")
 
     github_cfg = persistent_store.get_json("github_config")
     if github_cfg:

@@ -78,6 +78,41 @@ async def upload_storage_state(
         )
 
 
+@router.post("/push")
+async def push_storage_state(
+    request: Request,
+):
+    """
+    Push storage_state.json via JSON body with Bearer token auth.
+    Used to sync storage_state from dev to production without web UI.
+    """
+    from app.routes.api_v1 import require_service_token
+    from fastapi import Header
+    auth_header = request.headers.get("authorization")
+    await require_service_token(auth_header)
+
+    try:
+        body = await request.json()
+    except Exception:
+        return JSONResponse(status_code=400, content={"success": False, "message": "Invalid JSON body"})
+
+    if not isinstance(body, dict):
+        return JSONResponse(status_code=400, content={"success": False, "message": "Body must be a JSON object (storage_state)"})
+
+    content = json.dumps(body)
+    try:
+        config.STORAGE_STATE_PATH.parent.mkdir(parents=True, exist_ok=True)
+        config.STORAGE_STATE_PATH.write_text(content)
+        config.sync_storage_state()
+        persistent_store.put("storage_state_json", content)
+        logger.info("storage_state.json pushed via API, saved, synced, and persisted to DB")
+    except Exception as e:
+        logger.error(f"Failed to save storage_state.json via push: {e}")
+        return JSONResponse(status_code=500, content={"success": False, "message": f"Failed to save: {e}"})
+
+    return {"success": True, "message": "storage_state.json pushed and persisted to DB"}
+
+
 @router.get("/status")
 async def auth_status():
     """
