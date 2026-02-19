@@ -86,8 +86,9 @@ Environment variables are configured in `.env.example`. Key settings:
   - Auth upload and GitHub config save now persist to DB alongside file system
 - 2026-02-06: Fixed WorkerChatRequest model - accepts both snake_case (notebook_url) and camelCase (notebookUrl)
 - 2026-02-06: Added NOTEBOOKLM_SERVICE_TOKEN secret for service-to-service auth
+- 2026-02-19: Re-deployed project — installed dependencies, configured secrets (NOTEBOOKLM_SERVICE_TOKEN, GITHUB_TOKEN), set GITHUB_REPO=maxfraieho/garden-seedling
 - 2026-02-05: Added GitHub integration for auto-committing accepted proposals
-  - Target repo: `maxfraieho/project-genesis`
+  - Target repo: `maxfraieho/garden-seedling`
   - New endpoint: `/v1/git/commit` - Commit files to GitHub (requires service token)
   - New endpoints: `/api/github/config` and `/api/github/status` - Configure/check GitHub settings (public, for web UI)
   - New endpoints: `/v1/api/github/config` and `/v1/api/github/status` - Configure/check GitHub settings (requires service token)
