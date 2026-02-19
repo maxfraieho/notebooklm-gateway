@@ -41,6 +41,7 @@ async def require_service_token(authorization: Optional[str] = Header(None)):
     """
     Dependency for service-to-service authentication via Bearer token.
     Used by Worker/external services to call protected endpoints.
+    Validates Bearer token only — does NOT check NotebookLM storage_state.
     """
     if not config.NOTEBOOKLM_SERVICE_TOKEN:
         raise APIError(
@@ -71,6 +72,12 @@ async def require_service_token(authorization: Optional[str] = Header(None)):
             status_code=403,
         )
 
+
+async def require_service_token_and_storage(authorization: Optional[str] = Header(None)):
+    """
+    Dependency for NotebookLM endpoints that need both Bearer token AND storage_state.
+    """
+    await require_service_token(authorization)
     if not notebooklm_service.is_authenticated():
         raise NotAuthenticatedError("NotebookLM storage_state.json not configured")
 
@@ -532,12 +539,13 @@ def build_full_question(message: str, history: list[HistoryMessage], system_prom
 @router.post("/chat", response_model=WorkerChatResponse)
 async def worker_chat(
     request: WorkerChatRequest,
-    _: None = Depends(require_service_token),
+    _: None = Depends(require_service_token_and_storage),
 ):
     """
     Chat endpoint for Cloudflare Worker / Lovable UI.
 
     Requires Bearer token authentication via NOTEBOOKLM_SERVICE_TOKEN.
+    Also requires NotebookLM storage_state.json to be configured.
     """
     request_id = str(uuid.uuid4())
 
