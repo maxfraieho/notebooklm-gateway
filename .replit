@@ -4,7 +4,7 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
-packages = ["alsa-lib", "at-spi2-core", "cairo", "chromium", "cups", "gitFull", "libxkbcommon", "mesa", "nspr", "nss", "pango", "playwright-driver", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXfixes", "xorg.libxcb"]
+packages = ["alsa-lib", "at-spi2-core", "cairo", "chromium", "cups", "gitFull", "libxcrypt", "libxkbcommon", "mesa", "nspr", "nss", "pango", "playwright-driver", "xorg.libX11", "xorg.libXcomposite", "xorg.libXdamage", "xorg.libXfixes", "xorg.libxcb"]
 
 [workflows]
 runButton = "Project"
