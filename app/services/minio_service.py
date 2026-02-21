@@ -26,6 +26,24 @@ def get_client() -> Minio:
     return _client
 
 
+def reconfigure(endpoint: str, access_key: str, secret_key: str, bucket: str, secure: bool):
+    """Reconfigure MinIO client with new settings."""
+    global _client
+    import os
+    cleaned = endpoint.replace("https://", "").replace("http://", "")
+    config.MINIO_ENDPOINT = cleaned
+    config.MINIO_ACCESS_KEY = access_key
+    config.MINIO_SECRET_KEY = secret_key
+    config.MINIO_BUCKET = bucket
+    config.MINIO_SECURE = secure
+    os.environ["MINIO_ENDPOINT"] = cleaned
+    os.environ["MINIO_ACCESS_KEY"] = access_key
+    os.environ["MINIO_SECRET_KEY"] = secret_key
+    os.environ["MINIO_BUCKET"] = bucket
+    os.environ["MINIO_SECURE"] = str(secure).lower()
+    _client = None
+
+
 def check_connection() -> tuple[bool, str]:
     """Check if MinIO is accessible."""
     try:

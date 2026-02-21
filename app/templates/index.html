@@ -257,6 +257,48 @@
             </details>
         </div>
 
+        <div class="card">
+            <h2>MinIO / S3 Storage</h2>
+            <p>Configure MinIO connection for zone file storage.</p>
+
+            <form id="minio-form">
+                <div class="form-group">
+                    <label for="minio-endpoint">Endpoint</label>
+                    <input type="text" id="minio-endpoint" name="minio_endpoint"
+                           placeholder="apiminio.exodus.pp.ua" />
+                    <small>Hostname without protocol (https:// added automatically when secure is on)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="minio-access-key">Access Key</label>
+                    <input type="text" id="minio-access-key" name="minio_access_key"
+                           placeholder="access key" />
+                </div>
+
+                <div class="form-group">
+                    <label for="minio-secret-key">Secret Key</label>
+                    <input type="password" id="minio-secret-key" name="minio_secret_key"
+                           placeholder="secret key" />
+                </div>
+
+                <div class="form-group">
+                    <label for="minio-bucket">Bucket</label>
+                    <input type="text" id="minio-bucket" name="minio_bucket"
+                           placeholder="mcpstorage" />
+                </div>
+
+                <div class="form-group" style="display:flex;align-items:center;gap:8px;">
+                    <input type="checkbox" id="minio-secure" name="minio_secure" checked
+                           style="width:auto;" />
+                    <label for="minio-secure" style="margin-bottom:0;">Use HTTPS (secure)</label>
+                </div>
+
+                <button type="submit" class="btn-primary">Save MinIO Settings</button>
+            </form>
+
+            <div id="minio-status" class="status-box"></div>
+        </div>
+
         <div class="nav-links">
             <a href="/health">Health Check</a>
             <a href="/docs">API Docs</a>
@@ -372,8 +414,68 @@
             }
         }
 
+        document.getElementById('minio-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const statusEl = document.getElementById('minio-status');
+            statusEl.textContent = 'Saving & testing connection...';
+            statusEl.className = 'status-box pending';
+            statusEl.style.display = 'block';
+
+            try {
+                const resp = await fetch('/api/minio/config', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        endpoint: document.getElementById('minio-endpoint').value,
+                        access_key: document.getElementById('minio-access-key').value,
+                        secret_key: document.getElementById('minio-secret-key').value,
+                        bucket: document.getElementById('minio-bucket').value,
+                        secure: document.getElementById('minio-secure').checked,
+                    }),
+                });
+
+                const data = await resp.json();
+                if (data.success) {
+                    statusEl.textContent = data.message;
+                    statusEl.className = 'status-box success';
+                    document.getElementById('minio-secret-key').value = '';
+                } else {
+                    throw new Error(data.error || 'Configuration failed');
+                }
+            } catch (err) {
+                statusEl.textContent = err.message;
+                statusEl.className = 'status-box error';
+            }
+        });
+
+        async function loadMinIOStatus() {
+            try {
+                const resp = await fetch('/api/minio/status');
+                const data = await resp.json();
+                const statusEl = document.getElementById('minio-status');
+
+                if (data.configured) {
+                    document.getElementById('minio-endpoint').value = data.endpoint || '';
+                    document.getElementById('minio-bucket').value = data.bucket || '';
+                    document.getElementById('minio-secure').checked = data.secure !== false;
+
+                    if (data.connected) {
+                        statusEl.textContent = 'MinIO connected: ' + data.endpoint + '/' + data.bucket;
+                        statusEl.className = 'status-box success';
+                    } else {
+                        statusEl.textContent = 'MinIO configured but connection failed: ' + (data.error || 'unknown');
+                        statusEl.className = 'status-box error';
+                    }
+                    statusEl.style.display = 'block';
+                }
+            } catch (e) {
+                console.error('Failed to load MinIO status:', e);
+            }
+        }
+
         loadGitHubStatus();
         loadNotebookLMStatus();
+        loadMinIOStatus();
     </script>
 </body>
 </html>

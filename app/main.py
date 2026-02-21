@@ -70,6 +70,21 @@ def restore_from_db():
         except Exception as e:
             logger.error(f"Failed to restore GitHub config from DB: {e}")
 
+    minio_cfg = persistent_store.get_json("minio_config")
+    if minio_cfg:
+        try:
+            from app.services import minio_service
+            endpoint = minio_cfg.get("endpoint", "")
+            access_key = minio_cfg.get("access_key", "")
+            secret_key = minio_cfg.get("secret_key", "")
+            bucket = minio_cfg.get("bucket", "")
+            secure = minio_cfg.get("secure", True)
+            if endpoint and access_key and secret_key:
+                minio_service.reconfigure(endpoint, access_key, secret_key, bucket, secure)
+                restored.append(f"minio({endpoint}/{bucket})")
+        except Exception as e:
+            logger.error(f"Failed to restore MinIO config from DB: {e}")
+
     if restored:
         logger.info(f"Restored from DB: {', '.join(restored)}")
     return restored
@@ -312,6 +327,62 @@ async def get_github_status_public():
         "configured": True,
         "repo": github_service.repo,
         "branch": github_service.branch,
+    }
+
+
+@app.post("/api/minio/config")
+async def save_minio_config_public(request: Request):
+    """Save MinIO configuration from web UI (no auth required for admin panel)."""
+    from app.services import minio_service
+
+    body = await request.json()
+    endpoint = body.get("endpoint", "").strip()
+    access_key = body.get("access_key", "").strip()
+    secret_key = body.get("secret_key", "").strip()
+    bucket = body.get("bucket", "").strip()
+    secure = body.get("secure", True)
+
+    if not endpoint or not access_key or not secret_key or not bucket:
+        return {"success": False, "error": "All fields are required"}
+
+    cleaned_endpoint = endpoint.replace("https://", "").replace("http://", "")
+    minio_service.reconfigure(cleaned_endpoint, access_key, secret_key, bucket, secure)
+
+    ok, msg = minio_service.check_connection()
+    if not ok:
+        return {"success": False, "error": msg}
+
+    persistent_store.put_json("minio_config", {
+        "endpoint": cleaned_endpoint,
+        "access_key": access_key,
+        "secret_key": secret_key,
+        "bucket": bucket,
+        "secure": secure,
+    })
+
+    return {"success": True, "message": f"MinIO configured: {endpoint}/{bucket}"}
+
+
+@app.get("/api/minio/status")
+async def get_minio_status_public():
+    """Check MinIO configuration status (for web UI)."""
+    from app.services import minio_service
+
+    endpoint = config.MINIO_ENDPOINT
+    bucket = config.MINIO_BUCKET
+    has_keys = bool(config.MINIO_ACCESS_KEY and config.MINIO_SECRET_KEY and bucket)
+
+    if not has_keys:
+        return {"configured": False, "endpoint": endpoint, "bucket": bucket}
+
+    ok, msg = minio_service.check_connection()
+    return {
+        "configured": True,
+        "connected": ok,
+        "endpoint": endpoint,
+        "bucket": bucket,
+        "secure": config.MINIO_SECURE,
+        "error": msg if not ok else None,
     }
 
 
