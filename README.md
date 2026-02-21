@@ -68,23 +68,23 @@ notebooklm login
 python -m app.main
 
 # Production
-uvicorn app.main:app --host 0.0.0.0 --port 8000
+uvicorn app.main:app --host 0.0.0.0 --port 5000
 ```
 
 ### 5. Upload cookies
 
-Open http://localhost:8000/auth in browser and upload `storage_state.json`
+Open http://localhost:5000/auth in browser and upload `storage_state.json`
 
 Or via CLI:
 ```bash
-curl -X POST http://localhost:8000/auth/upload \
+curl -X POST http://localhost:5000/auth/upload \
   -F "file=@storage_state.json"
 ```
 
 ### 6. Verify
 
 ```bash
-curl http://localhost:8000/auth/status
+curl http://localhost:5000/auth/status
 # {"ok": true, "message": "Authentication valid", "notebook_count": 5}
 ```
 
@@ -95,7 +95,7 @@ curl http://localhost:8000/auth/status
 ### Create a Notebook
 
 ```bash
-curl -X POST http://localhost:8000/v1/notebooks \
+curl -X POST http://localhost:5000/v1/notebooks \
   -H "Content-Type: application/json" \
   -d '{"title": "My Research Notebook"}'
 ```
@@ -112,7 +112,7 @@ Response:
 ### Import Sources from MinIO
 
 ```bash
-curl -X POST http://localhost:8000/v1/notebooks/{notebook_id}/sources/import \
+curl -X POST http://localhost:5000/v1/notebooks/{notebook_id}/sources/import \
   -H "Content-Type: application/json" \
   -d '{
     "sources": [
@@ -137,7 +137,7 @@ Response:
 ### Check Import Job Status
 
 ```bash
-curl http://localhost:8000/v1/jobs/{job_id}
+curl http://localhost:5000/v1/jobs/{job_id}
 ```
 
 Response:
@@ -165,7 +165,7 @@ Response:
 ### Chat with Notebook
 
 ```bash
-curl -X POST http://localhost:8000/v1/notebooks/{notebook_id}/chat \
+curl -X POST http://localhost:5000/v1/notebooks/{notebook_id}/chat \
   -H "Content-Type: application/json" \
   -d '{
     "question": "What are the main findings?",
@@ -191,7 +191,7 @@ Response:
 ### Share Notebook
 
 ```bash
-curl -X POST http://localhost:8000/v1/notebooks/{notebook_id}/share \
+curl -X POST http://localhost:5000/v1/notebooks/{notebook_id}/share \
   -H "Content-Type: application/json" \
   -d '{
     "emails": ["colleague@example.com"],
@@ -243,7 +243,7 @@ All errors return unified format:
 | `/v1/notebooks/{id}/chat` | POST | Chat with notebook |
 | `/v1/jobs/{id}` | GET | Get job status |
 
-Full API docs: http://localhost:8000/docs
+Full API docs: http://localhost:5000/docs
 
 ---
 
@@ -253,7 +253,7 @@ Environment variables (`.env`):
 
 ```bash
 # Server
-PORT=8000
+PORT=5000
 HOST=0.0.0.0
 
 # MinIO
