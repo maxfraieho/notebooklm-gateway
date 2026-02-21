@@ -2,6 +2,7 @@
 REST API v1 for NotebookLM operations.
 """
 import asyncio
+import io
 import json
 import logging
 import re
@@ -9,6 +10,7 @@ import uuid
 from pathlib import Path
 from typing import Optional, Literal
 from fastapi import APIRouter, Depends, Header
+from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 
 from app import config
@@ -996,4 +998,51 @@ async def get_github_status(
         branch=github_service.branch,
         valid=valid,
         error=error if not valid else None,
+    )
+
+
+@router.get("/zones/{zone_id}/download")
+async def download_zone_notes(
+    zone_id: str,
+    _: None = Depends(require_service_token),
+):
+    """Download consolidated notes-all.md for a zone from MinIO."""
+    from app.services import minio_service
+    from minio.error import S3Error
+
+    key = f"zones/{zone_id}/notes-all.md"
+    bucket = config.MINIO_BUCKET
+
+    try:
+        client = minio_service.get_client()
+        response = client.get_object(bucket, key)
+        content = response.read()
+        response.close()
+        response.release_conn()
+    except S3Error as e:
+        if e.code == "NoSuchKey":
+            raise NotFoundError(
+                message=f"Notes file not found for zone {zone_id}",
+                details={"zone_id": zone_id, "key": key},
+            )
+        raise APIError(
+            code=ErrorCode.MINIO_ERROR,
+            message=f"Failed to download from MinIO: {e.code}",
+            status_code=500,
+            details={"zone_id": zone_id, "key": key},
+        )
+    except Exception as e:
+        raise APIError(
+            code=ErrorCode.MINIO_ERROR,
+            message=f"MinIO error: {str(e)}",
+            status_code=500,
+            details={"zone_id": zone_id},
+        )
+
+    return StreamingResponse(
+        io.BytesIO(content),
+        media_type="text/markdown; charset=utf-8",
+        headers={
+            "Content-Disposition": 'attachment; filename="notes-all.md"',
+        },
     )

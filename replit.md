@@ -61,6 +61,7 @@ python -m uvicorn app.main:app --host 0.0.0.0 --port 5000
 - `/v1/git/status` - GitHub integration diagnostics + file existence check (requires Bearer token)
 - `/v1/drakon/commit` - Commit DRAKON diagram JSON to GitHub (requires Bearer token)
 - `/v1/drakon/{folderSlug}/{diagramId}` - DELETE: Remove DRAKON diagram from GitHub (requires Bearer token)
+- `/v1/zones/{zone_id}/download` - GET: Download consolidated notes-all.md from MinIO (requires Bearer token)
 
 ## Configuration
 Environment variables are configured in `.env.example`. Key settings:
