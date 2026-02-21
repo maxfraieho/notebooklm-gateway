@@ -1015,10 +1015,21 @@ async def download_zone_notes(
 
     try:
         client = minio_service.get_client()
+
+        stat = client.stat_object(bucket, key)
+        file_size = stat.size
+        logger.info(f"Zone {zone_id} notes-all.md: size={file_size} bytes")
+
         response = client.get_object(bucket, key)
         content = response.read()
         response.close()
         response.release_conn()
+
+        logger.info(f"Zone {zone_id} notes-all.md: read {len(content)} bytes from MinIO")
+
+        if len(content) == 0:
+            logger.warning(f"Zone {zone_id} notes-all.md: file exists (stat={file_size}) but read returned 0 bytes")
+
     except S3Error as e:
         if e.code == "NoSuchKey":
             raise NotFoundError(
@@ -1032,6 +1043,7 @@ async def download_zone_notes(
             details={"zone_id": zone_id, "key": key},
         )
     except Exception as e:
+        logger.error(f"Zone {zone_id} download error: {type(e).__name__}: {e}")
         raise APIError(
             code=ErrorCode.MINIO_ERROR,
             message=f"MinIO error: {str(e)}",
@@ -1044,5 +1056,6 @@ async def download_zone_notes(
         media_type="text/markdown; charset=utf-8",
         headers={
             "Content-Disposition": 'attachment; filename="notes-all.md"',
+            "Content-Length": str(len(content)),
         },
     )
