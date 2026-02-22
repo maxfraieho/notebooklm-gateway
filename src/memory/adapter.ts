@@ -84,3 +84,14 @@ export class MemoryAdapter {
 }
 
 export const memory = new MemoryAdapter();
+
+let _adapterInstance: MemoryAdapter | null = null;
+
+export function setAdapter(instance: MemoryAdapter): void {
+  _adapterInstance = instance;
+}
+
+export function getAdapter(): MemoryAdapter {
+  if (!_adapterInstance) throw new Error('MemoryAdapter not initialized. Call setAdapter() first.');
+  return _adapterInstance;
+}

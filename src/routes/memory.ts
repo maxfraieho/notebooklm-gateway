@@ -1,7 +1,14 @@
 import type { FastifyInstance } from "fastify";
 import { memory } from "../memory/adapter.js";
-import { orchestratedSearch } from "../agents/searcher-agent.js";
-import { processTranscript } from "../agents/writer-agent.js";
+import { mastra } from "../mastra.js";
+import {
+  flattenToolCalls,
+  flattenToolResults,
+  extractEntitiesFromToolCalls,
+  extractCommitSha,
+  extractSubQueries,
+  extractSources,
+} from "../agents/extract-results.js";
 
 export async function memoryRoutes(app: FastifyInstance): Promise<void> {
   app.get("/v1/memory/health", async () => {
@@ -138,6 +145,55 @@ export async function memoryRoutes(app: FastifyInstance): Promise<void> {
     return { results };
   });
 
+  app.post("/v1/memory/:userId/orchestrated-search", async (request, reply) => {
+    if (!memory.isInitialized) {
+      reply.code(409).send({
+        error: "Memory not initialized. Call POST /v1/memory/init first.",
+      });
+      return;
+    }
+
+    const { userId } = request.params as { userId: string };
+    const body = request.body as {
+      conversation?: Array<{ role: string; content: string }>;
+      query?: string;
+      k?: number;
+    };
+
+    const lastMessage =
+      body.query ??
+      body.conversation?.findLast((m) => m.role === "user")?.content ??
+      "";
+
+    if (!lastMessage) {
+      reply.code(400).send({ error: "query or conversation with user message is required" });
+      return;
+    }
+
+    try {
+      const searcherAgent = mastra.getAgent("memory-searcher");
+      const result = await searcherAgent.generate(
+        `Answer this question using the memory for user ${userId}: ${lastMessage}`,
+        { maxSteps: 15 },
+      );
+
+      const toolCalls = flattenToolCalls(result.steps, result.toolCalls as any);
+      const toolResults = flattenToolResults(result.steps, result.toolResults as any);
+
+      return {
+        success: true,
+        answer: result.text,
+        subQueries: extractSubQueries(toolCalls),
+        sources: extractSources(toolResults),
+      };
+    } catch (err) {
+      reply.code(500).send({
+        error: "Agent execution failed",
+        details: err instanceof Error ? err.message : String(err),
+      });
+    }
+  });
+
   app.post("/v1/memory/garden-owner/orchestrated-search", async (request, reply) => {
     if (!memory.isInitialized) {
       reply.code(409).send({
@@ -146,18 +202,86 @@ export async function memoryRoutes(app: FastifyInstance): Promise<void> {
       return;
     }
 
-    const { conversation } = request.body as {
-      conversation: Array<{ role: "user" | "assistant"; content: string }>;
+    const body = request.body as {
+      conversation?: Array<{ role: string; content: string }>;
+      query?: string;
     };
 
-    if (!conversation || !Array.isArray(conversation) || conversation.length === 0) {
-      reply.code(400).send({ error: "conversation array is required and must not be empty" });
+    const lastMessage =
+      body.query ??
+      body.conversation?.findLast((m) => m.role === "user")?.content ??
+      "";
+
+    if (!lastMessage) {
+      reply.code(400).send({ error: "query or conversation with user message is required" });
       return;
     }
 
     try {
-      const result = await orchestratedSearch(conversation);
-      return result;
+      const searcherAgent = mastra.getAgent("memory-searcher");
+      const result = await searcherAgent.generate(
+        `Answer this question using the memory for user garden-owner: ${lastMessage}`,
+        { maxSteps: 15 },
+      );
+
+      const toolCalls = flattenToolCalls(result.steps, result.toolCalls as any);
+      const toolResults = flattenToolResults(result.steps, result.toolResults as any);
+
+      return {
+        success: true,
+        answer: result.text,
+        subQueries: extractSubQueries(toolCalls),
+        sources: extractSources(toolResults),
+      };
+    } catch (err) {
+      reply.code(500).send({
+        error: "Agent execution failed",
+        details: err instanceof Error ? err.message : String(err),
+      });
+    }
+  });
+
+  app.post("/v1/memory/:userId/process-transcript", async (request, reply) => {
+    if (!memory.isInitialized) {
+      reply.code(409).send({
+        error: "Memory not initialized. Call POST /v1/memory/init first.",
+      });
+      return;
+    }
+
+    const { userId } = request.params as { userId: string };
+    const body = request.body as {
+      memoryInput?: string;
+      text?: string;
+      sessionId?: string;
+      autoCommit?: boolean;
+      instructions?: string;
+    };
+
+    const text = body.memoryInput || body.text || "";
+    if (!text) {
+      reply.code(400).send({ error: "memoryInput or text field is required" });
+      return;
+    }
+
+    const sessionId = body.sessionId ?? `session-${Date.now()}`;
+
+    try {
+      const writerAgent = mastra.getAgent("memory-writer");
+      const prompt = body.instructions
+        ? `Process this conversation/input for user ${userId} (session: ${sessionId}).\n\nAdditional instructions: ${body.instructions}\n\nText:\n${text}`
+        : `Process this conversation/input for user ${userId} (session: ${sessionId}):\n\n${text}`;
+
+      const result = await writerAgent.generate(prompt, { maxSteps: 20 });
+
+      const toolResults = flattenToolResults(result.steps, result.toolResults as any);
+
+      return {
+        success: true,
+        sessionId,
+        entitiesAffected: extractEntitiesFromToolCalls(toolResults),
+        commitSha: extractCommitSha(toolResults),
+      };
     } catch (err) {
       reply.code(500).send({
         error: "Agent execution failed",
@@ -174,19 +298,38 @@ export async function memoryRoutes(app: FastifyInstance): Promise<void> {
       return;
     }
 
-    const { text, instructions } = request.body as {
-      text: string;
+    const body = request.body as {
+      memoryInput?: string;
+      text?: string;
+      sessionId?: string;
+      autoCommit?: boolean;
       instructions?: string;
     };
 
+    const text = body.memoryInput || body.text || "";
     if (!text) {
-      reply.code(400).send({ error: "text field is required" });
+      reply.code(400).send({ error: "memoryInput or text field is required" });
       return;
     }
 
+    const sessionId = body.sessionId ?? `session-${Date.now()}`;
+
     try {
-      const result = await processTranscript(text, instructions);
-      return result;
+      const writerAgent = mastra.getAgent("memory-writer");
+      const prompt = body.instructions
+        ? `Process this conversation/input for user garden-owner (session: ${sessionId}).\n\nAdditional instructions: ${body.instructions}\n\nText:\n${text}`
+        : `Process this conversation/input for user garden-owner (session: ${sessionId}):\n\n${text}`;
+
+      const result = await writerAgent.generate(prompt, { maxSteps: 20 });
+
+      const toolResults = flattenToolResults(result.steps, result.toolResults as any);
+
+      return {
+        success: true,
+        sessionId,
+        entitiesAffected: extractEntitiesFromToolCalls(toolResults),
+        commitSha: extractCommitSha(toolResults),
+      };
     } catch (err) {
       reply.code(500).send({
         error: "Agent execution failed",

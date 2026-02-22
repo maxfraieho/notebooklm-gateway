@@ -4,10 +4,12 @@ import { config } from "./config.js";
 import { authMiddleware } from "./routes/auth.js";
 import { memoryRoutes } from "./routes/memory.js";
 import { initTokenizer } from "./utils/tokens.js";
-import { memory } from "./memory/adapter.js";
+import { memory, setAdapter } from "./memory/adapter.js";
 import { initIndex } from "./memory/bm25-index.js";
 
 const app = Fastify({ logger: true });
+
+setAdapter(memory);
 
 await app.register(cors, { origin: true });
 
@@ -42,6 +44,8 @@ app.get("/", async () => {
       "POST /v1/memory/context",
       "GET  /v1/memory/search?q=...",
       "POST /v1/memory/commit",
+      "POST /v1/memory/:userId/orchestrated-search",
+      "POST /v1/memory/:userId/process-transcript",
       "POST /v1/memory/garden-owner/orchestrated-search",
       "POST /v1/memory/garden-owner/process-transcript",
     ],
