@@ -128,8 +128,15 @@ Environment variables are configured in `.env.example`. Key settings:
 - `POST /v1/memory/context` - Graph context from query
 - `GET  /v1/memory/search?q=...` - BM25 search
 - `POST /v1/memory/commit` - Commit & push to GitHub
+- `POST /v1/memory/garden-owner/orchestrated-search` - Agent-powered Q&A with citations (requires Bearer token)
+- `POST /v1/memory/garden-owner/process-transcript` - Agent-powered transcript processing (requires Bearer token)
 
 ## Recent Changes
+- 2026-02-22: Added Mastra agents layer to Memory Backend
+  - Searcher agent: orchestrated-search with tool-use (search, read, context) and citations
+  - Writer agent: process-transcript extracts entities from raw text
+  - Uses Anthropic Claude (Replit AI Integrations) for LLM calls
+  - Memory tools: search_memory, read_entity, get_context, list_entities, write_entity, commit_changes
 - 2026-02-22: Added Memory Backend (Node.js/TypeScript on port 3001)
   - Git-backed entity storage using isomorphic-git
   - BM25 full-text search with wink-nlp

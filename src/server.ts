@@ -42,6 +42,8 @@ app.get("/", async () => {
       "POST /v1/memory/context",
       "GET  /v1/memory/search?q=...",
       "POST /v1/memory/commit",
+      "POST /v1/memory/garden-owner/orchestrated-search",
+      "POST /v1/memory/garden-owner/process-transcript",
     ],
   };
 });

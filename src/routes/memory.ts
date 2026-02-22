@@ -1,5 +1,7 @@
 import type { FastifyInstance } from "fastify";
 import { memory } from "../memory/adapter.js";
+import { orchestratedSearch } from "../agents/searcher-agent.js";
+import { processTranscript } from "../agents/writer-agent.js";
 
 export async function memoryRoutes(app: FastifyInstance): Promise<void> {
   app.get("/v1/memory/health", async () => {
@@ -134,5 +136,62 @@ export async function memoryRoutes(app: FastifyInstance): Promise<void> {
     }
     const results = memory.search(q, limit ? parseInt(limit, 10) : 10);
     return { results };
+  });
+
+  app.post("/v1/memory/garden-owner/orchestrated-search", async (request, reply) => {
+    if (!memory.isInitialized) {
+      reply.code(409).send({
+        error: "Memory not initialized. Call POST /v1/memory/init first.",
+      });
+      return;
+    }
+
+    const { conversation } = request.body as {
+      conversation: Array<{ role: "user" | "assistant"; content: string }>;
+    };
+
+    if (!conversation || !Array.isArray(conversation) || conversation.length === 0) {
+      reply.code(400).send({ error: "conversation array is required and must not be empty" });
+      return;
+    }
+
+    try {
+      const result = await orchestratedSearch(conversation);
+      return result;
+    } catch (err) {
+      reply.code(500).send({
+        error: "Agent execution failed",
+        details: err instanceof Error ? err.message : String(err),
+      });
+    }
+  });
+
+  app.post("/v1/memory/garden-owner/process-transcript", async (request, reply) => {
+    if (!memory.isInitialized) {
+      reply.code(409).send({
+        error: "Memory not initialized. Call POST /v1/memory/init first.",
+      });
+      return;
+    }
+
+    const { text, instructions } = request.body as {
+      text: string;
+      instructions?: string;
+    };
+
+    if (!text) {
+      reply.code(400).send({ error: "text field is required" });
+      return;
+    }
+
+    try {
+      const result = await processTranscript(text, instructions);
+      return result;
+    } catch (err) {
+      reply.code(500).send({
+        error: "Agent execution failed",
+        details: err instanceof Error ? err.message : String(err),
+      });
+    }
   });
 }
