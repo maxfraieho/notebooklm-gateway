@@ -31,13 +31,19 @@ notebooklm-backend/
 │   │   ├── markdown.ts      # Markdown/frontmatter parser
 │   │   ├── tokens.ts        # Token counting (tiktoken)
 │   │   └── lock.ts          # Async mutex locks
+│   ├── mastra.ts            # Mastra instance (agents registry)
 │   ├── memory/
 │   │   ├── git-store.ts     # isomorphic-git repo operations
 │   │   ├── bm25-index.ts    # BM25 full-text search index
 │   │   ├── entity-manager.ts # CRUD + backlink management
 │   │   ├── diff-engine.ts   # Content diff computation
 │   │   ├── context-manager.ts # Graph traversal context assembly
-│   │   └── adapter.ts       # Unified MemoryAdapter API
+│   │   └── adapter.ts       # Unified MemoryAdapter API + singleton getter
+│   ├── agents/
+│   │   ├── tools.ts         # Mastra createTool definitions (6 tools)
+│   │   ├── searcher-agent.ts # Mastra Agent for Q&A with citations
+│   │   ├── writer-agent.ts  # Mastra Agent for transcript processing
+│   │   └── extract-results.ts # Tool call/result extraction helpers
 │   └── routes/
 │       ├── auth.ts          # Bearer token middleware
 │       └── memory.ts        # REST endpoints
@@ -64,8 +70,10 @@ notebooklm-backend/
 - Fastify (HTTP server)
 - isomorphic-git (git operations against GitHub)
 - wink-bm25-text-search + wink-nlp (full-text search)
-- @mastra/core (agent framework)
+- @mastra/core v1.5 (agent framework: Agent, createTool, Mastra)
+- @ai-sdk/anthropic v3 (AI SDK v5 compatible)
 - tiktoken (token counting)
+- zod (tool input schema validation)
 
 ## Running the Application
 NotebookLM Backend (port 5000):
@@ -132,11 +140,16 @@ Environment variables are configured in `.env.example`. Key settings:
 - `POST /v1/memory/garden-owner/process-transcript` - Agent-powered transcript processing (requires Bearer token)
 
 ## Recent Changes
-- 2026-02-22: Added Mastra agents layer to Memory Backend
-  - Searcher agent: orchestrated-search with tool-use (search, read, context) and citations
-  - Writer agent: process-transcript extracts entities from raw text
-  - Uses Anthropic Claude (Replit AI Integrations) for LLM calls
-  - Memory tools: search_memory, read_entity, get_context, list_entities, write_entity, commit_changes
+- 2026-02-22: Phase 2 — Replaced direct Claude API calls with proper Mastra agents
+  - Migrated from @anthropic-ai/sdk manual tool-use loop to @mastra/core Agent.generate() with maxSteps
+  - Upgraded @ai-sdk/anthropic from v1 to v3 (AI SDK v5 compatible for Mastra v1.5)
+  - Created src/mastra.ts with Mastra instance registering both agents
+  - Tools rewritten with createTool + zod schemas (6 tools: search-memory, read-memory, write-memory, list-entities, commit-memory, get-context)
+  - Added src/agents/extract-results.ts for extracting entities/sources/subQueries from Mastra step results
+  - Added singleton pattern (setAdapter/getAdapter) to adapter.ts for tool dependency injection
+  - Added parameterized routes: /v1/memory/:userId/orchestrated-search and /v1/memory/:userId/process-transcript
+  - Fixed BM25 index post-consolidation write bug (rebuild engine when adding after consolidation)
+  - Removed @anthropic-ai/sdk dependency (no longer needed)
 - 2026-02-22: Added Memory Backend (Node.js/TypeScript on port 3001)
   - Git-backed entity storage using isomorphic-git
   - BM25 full-text search with wink-nlp

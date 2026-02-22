@@ -1,3 +1,15 @@
+function getToolName(call: any): string {
+  return call?.payload?.toolName ?? call?.toolName ?? "";
+}
+
+function getArgs(call: any): Record<string, any> {
+  return call?.payload?.args ?? call?.args ?? {};
+}
+
+function getResult(call: any): any {
+  return call?.payload?.result ?? call?.result ?? null;
+}
+
 export function flattenToolCalls(
   steps: any[] | undefined,
   directToolCalls?: any[],
@@ -31,8 +43,8 @@ export function extractEntitiesFromToolCalls(
   const seen = new Set<string>();
 
   for (const call of toolResults) {
-    if (call.toolName === "write-memory") {
-      const result = call.result as { entityId?: string } | null;
+    if (getToolName(call) === "write-memory") {
+      const result = getResult(call);
       const entityId = result?.entityId;
       if (entityId && !seen.has(entityId)) {
         seen.add(entityId);
@@ -52,8 +64,8 @@ export function extractCommitSha(
   toolResults: any[],
 ): string | undefined {
   for (const call of toolResults) {
-    if (call.toolName === "commit-memory") {
-      const result = call.result as { commitSha?: string } | null;
+    if (getToolName(call) === "commit-memory") {
+      const result = getResult(call);
       if (result?.commitSha) return result.commitSha;
     }
   }
@@ -64,8 +76,8 @@ export function extractSubQueries(
   toolCalls: any[],
 ): string[] {
   return toolCalls
-    .filter((c: any) => c.toolName === "search-memory")
-    .map((c: any) => c.args?.query ?? "")
+    .filter((c: any) => getToolName(c) === "search-memory")
+    .map((c: any) => getArgs(c)?.query ?? "")
     .filter(Boolean);
 }
 
@@ -73,15 +85,16 @@ export function extractSources(
   toolResults: any[],
 ): Array<{ entityId: string; score: number; snippet?: string }> {
   const sources: Array<{ entityId: string; score: number; snippet?: string }> = [];
+  const seen = new Set<string>();
+
   for (const call of toolResults) {
-    if (call.toolName === "search-memory") {
-      const result = call.result as {
-        results?: Array<{ entityId?: string; id?: string; score: number; snippet?: string }>;
-      } | null;
+    if (getToolName(call) === "search-memory") {
+      const result = getResult(call);
       if (result?.results) {
-        for (const r of result.results.slice(0, 3)) {
+        for (const r of result.results.slice(0, 5)) {
           const entityId = r.entityId || r.id;
-          if (entityId) {
+          if (entityId && !seen.has(entityId)) {
+            seen.add(entityId);
             sources.push({ entityId, score: r.score, snippet: r.snippet });
           }
         }

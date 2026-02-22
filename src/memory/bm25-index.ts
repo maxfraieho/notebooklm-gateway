@@ -31,21 +31,34 @@ export function initIndex(): void {
 }
 
 export function addToIndex(entity: Entity): void {
+  const isNew = !entityMap.has(entity.id);
   entityMap.set(entity.id, entity);
-  engine.addDoc({ title: entity.title, body: entity.content }, entity.id);
+
+  if (!needsConsolidate && !isNew) {
+    rebuildEngine();
+  } else {
+    try {
+      engine.addDoc({ title: entity.title, body: entity.content }, entity.id);
+      needsConsolidate = true;
+    } catch {
+      rebuildEngine();
+    }
+  }
+}
+
+function rebuildEngine(): void {
+  engine = new BM25();
+  engine.defineConfig({ fldWeights: { title: 2, body: 1 } });
+  engine.definePrepTasks([pipe]);
+  for (const e of entityMap.values()) {
+    engine.addDoc({ title: e.title, body: e.content }, e.id);
+  }
   needsConsolidate = true;
 }
 
 export function removeFromIndex(id: string): void {
   entityMap.delete(id);
-  const preserved = new Map(entityMap);
-  engine = new BM25();
-  engine.defineConfig({ fldWeights: { title: 2, body: 1 } });
-  engine.definePrepTasks([pipe]);
-  for (const e of preserved.values()) {
-    engine.addDoc({ title: e.title, body: e.content }, e.id);
-  }
-  needsConsolidate = true;
+  rebuildEngine();
 }
 
 function ensureConsolidated(): void {
