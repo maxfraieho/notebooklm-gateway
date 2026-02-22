@@ -1,0 +1,31 @@
+# Deploy Cloudflare Worker - Garden MCP Server
+# Triggers on push to main when worker files change
+
+name: Deploy Cloudflare Worker
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'infrastructure/cloudflare/worker/**'
+
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to Cloudflare Workers
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          workingDirectory: infrastructure/cloudflare/worker
+          # Uncomment if wrangler cannot auto-detect account:
+          # accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

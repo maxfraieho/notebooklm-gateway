@@ -1,0 +1,270 @@
+{
+  "contract_version": "1.1",
+  "description": "Shared test fixtures for graph contract compliance — both Python and TypeScript implementations must produce identical results for these cases.",
+  "reference": "docs/GRAPH_CONTRACT.md",
+
+  "slug_derivation": [
+    {
+      "id": "slug-1",
+      "description": "ASCII path, no special characters",
+      "input": "exodus.pp.ua/architecture/ARCH_ROOT",
+      "expected_slug": "exodus.pp.ua%2Farchitecture%2FARCH_ROOT",
+      "expected_stem": "arch_root"
+    },
+    {
+      "id": "slug-2",
+      "description": "Cyrillic filename — encodeURIComponent semantics required",
+      "input": "exodus.pp.ua/Індекс",
+      "expected_slug": "exodus.pp.ua%2F%D0%86%D0%BD%D0%B4%D0%B5%D0%BA%D1%81",
+      "expected_stem": "індекс"
+    },
+    {
+      "id": "slug-3",
+      "description": "Root-level ASCII file",
+      "input": "README",
+      "expected_slug": "README",
+      "expected_stem": "readme"
+    },
+    {
+      "id": "slug-4",
+      "description": "Cyrillic multi-segment path",
+      "input": "exodus.pp.ua/КАРТА_СИСТЕМИ",
+      "expected_slug": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "expected_stem": "карта_системи"
+    },
+    {
+      "id": "slug-5",
+      "description": "Mixed ASCII and Cyrillic path",
+      "input": "exodus.pp.ua/architecture/БЕКЕНД",
+      "expected_slug": "exodus.pp.ua%2Farchitecture%2F%D0%91%D0%95%D0%9A%D0%95%D0%9D%D0%94",
+      "expected_stem": "бекенд"
+    }
+  ],
+
+  "wikilink_extraction": [
+    {
+      "id": "extract-1",
+      "description": "Simple wikilink — no alias",
+      "input": "See [[ARCH_ROOT]] for details.",
+      "expected_targets": ["ARCH_ROOT"]
+    },
+    {
+      "id": "extract-2",
+      "description": "Wikilink with pipe alias — capture target only",
+      "input": "See [[ARCH_ROOT|Architecture Root]] for details.",
+      "expected_targets": ["ARCH_ROOT"]
+    },
+    {
+      "id": "extract-3",
+      "description": "Wikilink with anchor — anchor is discarded",
+      "input": "See [[ARCH_ROOT#section]] for details.",
+      "expected_targets": []
+    },
+    {
+      "id": "extract-4",
+      "description": "Backslash-pipe link (pre-normalized) — excluded by regex",
+      "input": "See [[exodus.pp.ua/path\\|ALIAS]] for details.",
+      "note": "This must be normalized by normalize-wikilinks.py before extraction. The canonical regex excludes backslash so this produces zero matches.",
+      "expected_targets": []
+    },
+    {
+      "id": "extract-5",
+      "description": "Wikilink inside fenced code block — ignored",
+      "input": "Example:\n```\n[[ARCH_ROOT]]\n```\nReal link: [[OTHER]]",
+      "expected_targets": ["OTHER"]
+    },
+    {
+      "id": "extract-6",
+      "description": "Wikilink inside inline code — ignored",
+      "input": "Use `[[ARCH_ROOT]]` syntax. See [[OTHER]].",
+      "expected_targets": ["OTHER"]
+    },
+    {
+      "id": "extract-7",
+      "description": "Multiple links on one line",
+      "input": "Links: [[NODE_A]] and [[NODE_B]] and [[NODE_C]].",
+      "expected_targets": ["NODE_A", "NODE_B", "NODE_C"]
+    },
+    {
+      "id": "extract-8",
+      "description": "Full path wikilink",
+      "input": "See [[exodus.pp.ua/architecture/ARCH_ROOT]].",
+      "expected_targets": ["exodus.pp.ua/architecture/ARCH_ROOT"]
+    },
+    {
+      "id": "extract-9",
+      "description": "Wikilink with leading/trailing whitespace in target — stripped",
+      "input": "See [[ ARCH_ROOT ]].",
+      "expected_targets": ["ARCH_ROOT"]
+    },
+    {
+      "id": "extract-10",
+      "description": "No wikilinks — empty result",
+      "input": "This note has no links.",
+      "expected_targets": []
+    },
+    {
+      "id": "extract-11",
+      "description": "Wikilink in frontmatter — ignored (frontmatter stripped before extraction)",
+      "input": "---\ntitle: Test\nrelated: [[ARCH_ROOT]]\n---\nBody text only. See [[OTHER]].",
+      "expected_targets": ["OTHER"]
+    },
+    {
+      "id": "extract-12",
+      "description": "Cyrillic target",
+      "input": "See [[КАРТА_СИСТЕМИ]] for overview.",
+      "expected_targets": ["КАРТА_СИСТЕМИ"]
+    }
+  ],
+
+  "resolution": {
+    "description": "Resolution algorithm — given a set of known nodes and a raw wikilink target, which node slug wins?",
+    "nodes": [
+      {
+        "slug": "exodus.pp.ua%2Farchitecture%2FARCH_ROOT",
+        "stem": "arch_root",
+        "title": "Architecture Root"
+      },
+      {
+        "slug": "exodus.pp.ua%2FARCH_ROOT",
+        "stem": "arch_root",
+        "title": "Arch Root (top-level duplicate)"
+      },
+      {
+        "slug": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+        "stem": "карта_системи",
+        "title": "Карта системи"
+      },
+      {
+        "slug": "README",
+        "stem": "readme",
+        "title": "README"
+      }
+    ],
+    "cases": [
+      {
+        "id": "res-1",
+        "description": "Exact encoded match wins over stem fallback",
+        "raw_target": "exodus.pp.ua/architecture/ARCH_ROOT",
+        "expected_slug": "exodus.pp.ua%2Farchitecture%2FARCH_ROOT",
+        "resolution_step": 1
+      },
+      {
+        "id": "res-2",
+        "description": "Short name — stem fallback to first alphabetically sorted match",
+        "raw_target": "ARCH_ROOT",
+        "note": "Both exodus.pp.ua%2Farchitecture%2FARCH_ROOT and exodus.pp.ua%2FARCH_ROOT share stem 'arch_root'. Stem fallback returns first alphabetically sorted match.",
+        "expected_slug": "exodus.pp.ua%2FARCH_ROOT",
+        "resolution_step": 5
+      },
+      {
+        "id": "res-3",
+        "description": "Case-insensitive match",
+        "raw_target": "arch_root",
+        "expected_slug": "exodus.pp.ua%2FARCH_ROOT",
+        "resolution_step": 5
+      },
+      {
+        "id": "res-4",
+        "description": "Cyrillic short name — stem fallback",
+        "raw_target": "КАРТА_СИСТЕМИ",
+        "expected_slug": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+        "resolution_step": 5
+      },
+      {
+        "id": "res-5",
+        "description": "No match — unresolved",
+        "raw_target": "NONEXISTENT_NODE",
+        "expected_slug": null,
+        "resolution_step": null
+      },
+      {
+        "id": "res-6",
+        "description": "Self-reference — excluded from edges even if resolved",
+        "raw_target": "README",
+        "source_slug": "README",
+        "expected_slug": "README",
+        "note": "Resolves successfully but produces no edge (self-loop prevention)"
+      }
+    ]
+  },
+
+  "edge_deduplication": [
+    {
+      "id": "dedup-1",
+      "description": "Two wikilinks to the same target in one note — produces one edge",
+      "source_slug": "README",
+      "raw_links": ["ARCH_ROOT", "ARCH_ROOT"],
+      "note": "After resolution both map to the same slug. Only one directed edge is created.",
+      "expected_edge_count": 1
+    },
+    {
+      "id": "dedup-2",
+      "description": "Alias variant and plain variant to same target — one edge",
+      "source_slug": "README",
+      "raw_links": ["ARCH_ROOT", "ARCH_ROOT|Architecture Root"],
+      "note": "Different wikilink forms, same resolved target. One edge.",
+      "expected_edge_count": 1
+    }
+  ],
+
+  "edge_semantics": {
+    "description": "Phase 1 heuristic edge type classification",
+    "map_file_stems": ["карта_системи", "карта_графу", "індекс"],
+    "cases": [
+      {
+        "id": "sem-1",
+        "description": "Source is a map file → structural",
+        "source_stem": "карта_системи",
+        "target_stem": "arch_root",
+        "source_dir": "exodus.pp.ua",
+        "target_dir": "exodus.pp.ua/architecture",
+        "expected_type": "structural"
+      },
+      {
+        "id": "sem-2",
+        "description": "Target is a map file → structural",
+        "source_stem": "arch_root",
+        "target_stem": "індекс",
+        "source_dir": "exodus.pp.ua/architecture",
+        "target_dir": "exodus.pp.ua",
+        "expected_type": "structural"
+      },
+      {
+        "id": "sem-3",
+        "description": "Same directory, neither is map → semantic",
+        "source_stem": "backend_api",
+        "target_stem": "backend_db",
+        "source_dir": "exodus.pp.ua/backend",
+        "target_dir": "exodus.pp.ua/backend",
+        "expected_type": "semantic"
+      },
+      {
+        "id": "sem-4",
+        "description": "Different directories, neither is map → navigational",
+        "source_stem": "frontend_ui",
+        "target_stem": "backend_api",
+        "source_dir": "exodus.pp.ua/frontend",
+        "target_dir": "exodus.pp.ua/backend",
+        "expected_type": "navigational"
+      }
+    ]
+  },
+
+  "snapshot_compliance": {
+    "description": "A valid snapshot must satisfy these structural constraints",
+    "required_fields": ["contract_version", "generated", "node_count", "edge_count", "nodes", "edges"],
+    "node_required_fields": ["slug", "title"],
+    "edge_required_fields": ["source", "target"],
+    "edge_optional_fields": ["type", "weight", "importance", "defaultVisible"],
+    "valid_edge_types": ["structural", "semantic", "navigational"],
+    "constraints": [
+      "contract_version must equal GRAPH_CONTRACT_VERSION",
+      "node_count must equal nodes array length",
+      "edge_count must equal edges array length",
+      "all edge sources and targets must be present in nodes",
+      "no self-loop edges (source != target)",
+      "no duplicate edges (unique source+target pairs)"
+    ]
+  }
+}

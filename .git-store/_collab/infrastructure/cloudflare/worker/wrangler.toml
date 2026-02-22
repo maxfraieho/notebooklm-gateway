@@ -1,0 +1,26 @@
+# Garden MCP Worker - Cloudflare Wrangler Configuration
+# Docs: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+name = "garden-mcp-server"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+# KV Namespace Binding
+# IMPORTANT: The actual namespace must be created in Cloudflare Dashboard
+# and the ID must be set here. This binding name is used in code as env.KV
+[[kv_namespaces]]
+binding = "KV"
+id = "REPLACE_WITH_YOUR_KV_NAMESPACE_ID"
+# For preview/dev environments, uncomment and set:
+# preview_id = "REPLACE_WITH_YOUR_PREVIEW_KV_NAMESPACE_ID"
+
+# Environment variables (secrets) are NOT defined here.
+# They must be configured in Cloudflare Dashboard or via:
+#   wrangler secret put JWT_SECRET
+#   wrangler secret put MINIO_ACCESS_KEY
+#   wrangler secret put MINIO_SECRET_KEY
+#   etc.
+
+# Optional: Custom domain routing
+# [routes]
+# { pattern = "garden-mcp-server.yourdomain.com/*", zone_name = "yourdomain.com" }

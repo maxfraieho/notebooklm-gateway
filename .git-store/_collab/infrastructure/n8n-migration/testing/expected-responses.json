@@ -1,0 +1,313 @@
+{
+  "GET /health": {
+    "status": 200,
+    "body": {
+      "status": "ok",
+      "version": "3.0-n8n",
+      "features": ["rest-api", "mcp-jsonrpc", "sse-transport", "minio-storage"],
+      "runtime": "node-n8n-adapter"
+    }
+  },
+
+  "POST /auth/status": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "initialized": "boolean",
+      "notebookLMReady": "boolean",
+      "notebookLMMessage": "string|null",
+      "notebookCount": "number|null"
+    }
+  },
+
+  "POST /auth/setup": {
+    "status": 200,
+    "body": {
+      "success": true
+    },
+    "error_400": {
+      "success": false,
+      "error": "Already initialized"
+    }
+  },
+
+  "POST /auth/login": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "token": "string (JWT)"
+    },
+    "error_401": {
+      "success": false,
+      "error": "Invalid password"
+    }
+  },
+
+  "POST /auth/refresh": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "token": "string (new JWT)"
+    }
+  },
+
+  "POST /auth/validate": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "valid": "boolean",
+      "expiresAt": "number|null"
+    }
+  },
+
+  "GET /zones/validate/:zoneId": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "folders": "string[]",
+      "noteCount": "number",
+      "notes": "array",
+      "expiresAt": "number (timestamp)",
+      "accessType": "string"
+    },
+    "error_403": {
+      "success": false,
+      "error": "Invalid access code"
+    },
+    "error_410": {
+      "success": false,
+      "error": "Zone expired",
+      "errorCode": "ZONE_EXPIRED",
+      "errorDetails": { "expired": true }
+    }
+  },
+
+  "GET /zones/:zoneId/notes": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "notes": "array",
+      "expiresAt": "string (ISO date)"
+    }
+  },
+
+  "GET /zones/list": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "zones": [
+        {
+          "id": "string",
+          "name": "string",
+          "description": "string",
+          "folders": "string[]",
+          "noteCount": "number",
+          "accessType": "string",
+          "createdAt": "number (timestamp)",
+          "expiresAt": "number (timestamp)",
+          "accessCode": "string"
+        }
+      ]
+    }
+  },
+
+  "POST /zones/create": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "zoneId": "string",
+      "accessCode": "string (ACCESS-XXXXXXXX)",
+      "zoneUrl": "string (URL)",
+      "expiresAt": "string (ISO date)",
+      "noteCount": "number"
+    }
+  },
+
+  "DELETE /zones/:zoneId": {
+    "status": 200,
+    "body": {
+      "success": true
+    }
+  },
+
+  "GET /zones/:zoneId/notebooklm": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "zoneId": "string",
+      "notebooklm": {
+        "notebookId": "string|null",
+        "notebookUrl": "string|null",
+        "importJobId": "string|null",
+        "status": "string",
+        "createdAt": "string|null",
+        "lastError": "string|null"
+      }
+    }
+  },
+
+  "GET /comments/:articleSlug": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "comments": [
+        {
+          "id": "string (UUID)",
+          "articleSlug": "string",
+          "parentId": "string|null",
+          "author": {
+            "id": "string",
+            "name": "string",
+            "domain": "string",
+            "isOwner": "boolean",
+            "type": "string"
+          },
+          "content": "string",
+          "createdAt": "string (ISO date)",
+          "updatedAt": "string|null",
+          "status": "approved|pending",
+          "origin": "local|zone"
+        }
+      ],
+      "total": "number"
+    }
+  },
+
+  "POST /comments/create": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "comment": {
+        "id": "string",
+        "articleSlug": "string",
+        "content": "string",
+        "status": "approved|pending"
+      }
+    }
+  },
+
+  "PATCH /comments/:commentId": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "comment": "object"
+    }
+  },
+
+  "DELETE /comments/:commentId": {
+    "status": 200,
+    "body": {
+      "success": true
+    }
+  },
+
+  "POST /sessions/create": {
+    "status": 200,
+    "body": {
+      "success": true,
+      "sessionId": "string (UUID)",
+      "sessionUrl": "string (URL with session param)",
+      "expiresAt": "string (ISO date)",
+      "noteCount": "number",
+      "storage": "string"
+    }
+  },
+
+  "POST /sessions/revoke": {
+    "status": 200,
+    "body": {
+      "success": true
+    }
+  },
+
+  "POST /mcp (initialize)": {
+    "status": 200,
+    "body": {
+      "jsonrpc": "2.0",
+      "id": "number",
+      "result": {
+        "protocolVersion": "2024-11-05",
+        "serverInfo": {
+          "name": "garden-mcp-server",
+          "version": "3.0.0"
+        },
+        "capabilities": {
+          "tools": {},
+          "resources": {}
+        }
+      }
+    }
+  },
+
+  "POST /mcp (tools/list)": {
+    "status": 200,
+    "body": {
+      "jsonrpc": "2.0",
+      "id": "number",
+      "result": {
+        "tools": [
+          {
+            "name": "search_notes",
+            "description": "string",
+            "inputSchema": "object"
+          },
+          {
+            "name": "get_note",
+            "description": "string",
+            "inputSchema": "object"
+          },
+          {
+            "name": "list_notes",
+            "description": "string",
+            "inputSchema": "object"
+          },
+          {
+            "name": "get_tags",
+            "description": "string",
+            "inputSchema": "object"
+          }
+        ]
+      }
+    }
+  },
+
+  "GET /sse": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
+      "Connection": "keep-alive"
+    },
+    "events": [
+      "event: open\ndata: {\"status\":\"connected\"}",
+      "event: message\ndata: {\"jsonrpc\":\"2.0\",\"method\":\"notifications/initialized\"}"
+    ]
+  },
+
+  "error_401": {
+    "status": 401,
+    "body": {
+      "success": false,
+      "error": "Unauthorized: Owner access required"
+    }
+  },
+
+  "error_404": {
+    "status": 404,
+    "body": {
+      "success": false,
+      "error": "Not found"
+    }
+  },
+
+  "error_500": {
+    "status": 500,
+    "body": {
+      "success": false,
+      "error": "Internal error: ..."
+    }
+  }
+}

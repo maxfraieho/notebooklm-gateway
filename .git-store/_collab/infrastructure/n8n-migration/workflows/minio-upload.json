@@ -1,0 +1,147 @@
+{
+  "name": "Garden - MinIO Upload",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "minio-upload",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "minio-upload"
+    },
+    {
+      "parameters": {
+        "jsCode": "/**\n * MinIO Upload with AWS Signature V4\n * \n * Input:\n *   - path: S3 key (e.g., 'zones/abc123/notes.json')\n *   - content: string content to upload\n *   - contentType: MIME type (default: 'application/json')\n *   - endpoint: MinIO endpoint URL\n *   - bucket: bucket name\n *   - accessKey: MinIO access key\n *   - secretKey: MinIO secret key\n */\n\nconst crypto = require('crypto');\n\nconst body = $input.first().json.body;\nconst {\n  path,\n  content,\n  contentType = 'application/json; charset=utf-8',\n  endpoint,\n  bucket,\n  accessKey,\n  secretKey,\n} = body;\n\n// Helpers\nfunction sha256(message) {\n  return crypto.createHash('sha256').update(message).digest('hex');\n}\n\nfunction hmacSha256(key, message) {\n  return crypto.createHmac('sha256', key).update(message).digest();\n}\n\nfunction hmacSha256Hex(key, message) {\n  return crypto.createHmac('sha256', key).update(message).digest('hex');\n}\n\n// Build request\nconst method = 'PUT';\nconst date = new Date().toISOString().replace(/[-:]/g, '').substring(0, 15) + 'Z';\nconst dateStamp = date.substring(0, 8);\nconst payloadHash = sha256(content);\n\nconst parsedEndpoint = new URL(endpoint);\nconst host = parsedEndpoint.host;\nconst baseUrl = endpoint.replace(/\\/+$/, '');\nconst url = `${baseUrl}/${bucket}/${path}`;\n\nconst canonicalUri = `/${bucket}/${path}`;\nconst canonicalHeaders = [\n  `content-type:${contentType}`,\n  `host:${host}`,\n  `x-amz-content-sha256:${payloadHash}`,\n  `x-amz-date:${date}`,\n].join('\\n');\nconst signedHeaders = 'content-type;host;x-amz-content-sha256;x-amz-date';\n\nconst canonicalRequest = [\n  method,\n  canonicalUri,\n  '',\n  canonicalHeaders,\n  '',\n  signedHeaders,\n  payloadHash,\n].join('\\n');\n\nconst algorithm = 'AWS4-HMAC-SHA256';\nconst region = 'us-east-1';\nconst service = 's3';\nconst credentialScope = `${dateStamp}/${region}/${service}/aws4_request`;\n\nconst stringToSign = [\n  algorithm,\n  date,\n  credentialScope,\n  sha256(canonicalRequest),\n].join('\\n');\n\n// Calculate signature\nconst kDate = hmacSha256('AWS4' + secretKey, dateStamp);\nconst kRegion = hmacSha256(kDate, region);\nconst kService = hmacSha256(kRegion, service);\nconst kSigning = hmacSha256(kService, 'aws4_request');\nconst signature = hmacSha256Hex(kSigning, stringToSign);\n\nconst authorization = [\n  `${algorithm} Credential=${accessKey}/${credentialScope}`,\n  `SignedHeaders=${signedHeaders}`,\n  `Signature=${signature}`,\n].join(', ');\n\nreturn {\n  url,\n  method,\n  headers: {\n    'Content-Type': contentType,\n    'x-amz-content-sha256': payloadHash,\n    'x-amz-date': date,\n    'Authorization': authorization,\n  },\n  body: content,\n  path,\n  bucket,\n};"
+      },
+      "id": "code-sign",
+      "name": "Sign Request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "method": "PUT",
+        "url": "={{ $json.url }}",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "={{ $json.headers['Content-Type'] }}"
+            },
+            {
+              "name": "x-amz-content-sha256",
+              "value": "={{ $json.headers['x-amz-content-sha256'] }}"
+            },
+            {
+              "name": "x-amz-date",
+              "value": "={{ $json.headers['x-amz-date'] }}"
+            },
+            {
+              "name": "Authorization",
+              "value": "={{ $json.headers['Authorization'] }}"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": []
+        },
+        "specifyBody": "string",
+        "body": "={{ $json.body }}",
+        "options": {}
+      },
+      "id": "http-upload",
+      "name": "Upload to MinIO",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const signed = $('Sign Request').first().json;\nconst uploadResult = $('Upload to MinIO').first();\n\nreturn {\n  success: true,\n  bucket: signed.bucket,\n  key: signed.path,\n  url: signed.url,\n  statusCode: uploadResult.json?.statusCode || 200,\n};"
+      },
+      "id": "code-response",
+      "name": "Build Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "id": "respond",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1050, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Sign Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Sign Request": {
+      "main": [
+        [
+          {
+            "node": "Upload to MinIO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload to MinIO": {
+      "main": [
+        [
+          {
+            "node": "Build Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Response": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true
+  },
+  "tags": [
+    {
+      "name": "garden-api"
+    }
+  ]
+}

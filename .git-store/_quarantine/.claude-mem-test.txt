@@ -1,0 +1,20 @@
+Claude-Mem Memory Test
+=====================
+
+Test Date: 2026-01-18 06:56
+Project: garden-bloom
+User: vokov (Q)
+
+SECRET WORD: BANANA-ROCKET-2026
+
+This file is a test to verify that claude-mem persistent memory works.
+After restarting the session, Claude should remember the secret word.
+
+Test verification question:
+"Яке було секретне слово з тесту пам'яті?"
+
+Expected answer: BANANA-ROCKET-2026
+
+Claude-Mem version: 9.0.5
+Worker PID: 211481
+Worker URL: http://127.0.0.1:37777

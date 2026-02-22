@@ -1,0 +1,29 @@
+{
+  "name": "memory-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npx tsx src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "fastify": "^4.28.0",
+    "@fastify/cors": "^9.0.0",
+    "@mastra/core": "^1.0.0",
+    "@ai-sdk/anthropic": "^1.0.0",
+    "isomorphic-git": "^1.27.0",
+    "wink-bm25-text-search": "^3.1.0",
+    "wink-nlp": "^2.3.0",
+    "wink-eng-lite-web-model": "^1.5.0",
+    "diff": "^7.0.0",
+    "zod": "^3.23.0",
+    "tiktoken": "^1.0.17"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0",
+    "@types/node": "^22.0.0",
+    "@types/diff": "^5.2.0",
+    "tsx": "^4.16.0"
+  }
+}

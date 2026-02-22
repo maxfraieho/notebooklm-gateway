@@ -1,12 +1,14 @@
-# NotebookLM Backend
+# NotebookLM Backend + Memory Backend
 
 ## Overview
-A headless backend server for Google NotebookLM integration. Provides REST API for notebook operations without requiring a browser/GUI on the server.
+Two backend servers:
+1. **NotebookLM Backend** (Python/FastAPI, port 5000) - Google NotebookLM integration REST API
+2. **Memory Backend** (Node.js/TypeScript/Fastify, port 3001) - Agent-based knowledge management with git-backed entity storage, BM25 search, and graph context assembly
 
 ## Project Structure
 ```
 notebooklm-backend/
-├── app/
+├── app/                     # Python NotebookLM backend
 │   ├── main.py              # FastAPI app + CORS + error handlers
 │   ├── config.py            # Configuration from environment variables
 │   ├── errors.py            # Unified error handling
@@ -21,16 +23,35 @@ notebooklm-backend/
 │   └── templates/
 │       ├── auth.html
 │       └── auth_result.html
+├── src/                     # TypeScript Memory backend
+│   ├── server.ts            # Fastify entry point (port 3001)
+│   ├── config.ts            # Environment config
+│   ├── types.ts             # Shared TypeScript types
+│   ├── utils/
+│   │   ├── markdown.ts      # Markdown/frontmatter parser
+│   │   ├── tokens.ts        # Token counting (tiktoken)
+│   │   └── lock.ts          # Async mutex locks
+│   ├── memory/
+│   │   ├── git-store.ts     # isomorphic-git repo operations
+│   │   ├── bm25-index.ts    # BM25 full-text search index
+│   │   ├── entity-manager.ts # CRUD + backlink management
+│   │   ├── diff-engine.ts   # Content diff computation
+│   │   ├── context-manager.ts # Graph traversal context assembly
+│   │   └── adapter.ts       # Unified MemoryAdapter API
+│   └── routes/
+│       ├── auth.ts          # Bearer token middleware
+│       └── memory.ts        # REST endpoints
+├── package.json
+├── tsconfig.json
 ├── data/                    # JSON state files
 ├── secrets/                 # Cookies storage
-├── scripts/
-│   └── local_login.md       # Login instructions
 ├── requirements.txt
 ├── .env.example
 └── README.md
 ```
 
 ## Tech Stack
+### NotebookLM Backend (Python)
 - Python 3.11
 - FastAPI + Uvicorn
 - PostgreSQL (persistent key-value store for auth & config)
@@ -38,10 +59,23 @@ notebooklm-backend/
 - Playwright (browser automation for NotebookLM)
 - MinIO client (S3-compatible storage)
 
+### Memory Backend (TypeScript)
+- Node.js 22 + TypeScript
+- Fastify (HTTP server)
+- isomorphic-git (git operations against GitHub)
+- wink-bm25-text-search + wink-nlp (full-text search)
+- @mastra/core (agent framework)
+- tiktoken (token counting)
+
 ## Running the Application
-The server runs on port 5000 using uvicorn:
+NotebookLM Backend (port 5000):
 ```
 python -m uvicorn app.main:app --host 0.0.0.0 --port 5000
+```
+
+Memory Backend (port 3001):
+```
+npx tsx src/server.ts
 ```
 
 ## Key Endpoints
@@ -79,7 +113,29 @@ Environment variables are configured in `.env.example`. Key settings:
 - Files per zone: `notes.json`, `notes.jsonl`, `notes.md`
 - Backend downloads from MinIO and uploads to NotebookLM
 
+### Memory Backend (port 3001)
+- `GET  /` - Service info & endpoint list
+- `GET  /health` - Health check
+- `GET  /v1/memory/health` - Memory health (public, no auth)
+- `POST /v1/memory/init` - Initialize: clone repo + build BM25 index
+- `POST /v1/memory/refresh` - Pull latest from GitHub + rebuild index
+- `GET  /v1/memory/entities` - List entities (optional `?q=` search, `?limit=`)
+- `GET  /v1/memory/entities/:id` - Get single entity
+- `POST /v1/memory/entities` - Create entity
+- `PUT  /v1/memory/entities/:id` - Update entity
+- `DEL  /v1/memory/entities/:id` - Delete entity
+- `GET  /v1/memory/context/:id` - Graph context from entity
+- `POST /v1/memory/context` - Graph context from query
+- `GET  /v1/memory/search?q=...` - BM25 search
+- `POST /v1/memory/commit` - Commit & push to GitHub
+
 ## Recent Changes
+- 2026-02-22: Added Memory Backend (Node.js/TypeScript on port 3001)
+  - Git-backed entity storage using isomorphic-git
+  - BM25 full-text search with wink-nlp
+  - Graph-based context assembly (4-depth traversal)
+  - Markdown frontmatter parsing with wikilink extraction
+  - Bearer token auth via NOTEBOOKLM_SERVICE_TOKEN
 - 2026-02-06: Added PostgreSQL persistent storage for storage_state.json and GitHub config
   - Data survives republish/restart - no need to re-upload storage_state.json each time
   - Uses kv_store table in PostgreSQL for key-value persistence

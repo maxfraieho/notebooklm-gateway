@@ -1,0 +1,221 @@
+{
+  "name": "Garden - Zones Create",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "zones-create",
+        "responseMode": "responseNode",
+        "options": {
+          "rawBody": false
+        }
+      },
+      "id": "webhook-1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "webhookId": "zones-create"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Prepare zone data\nconst body = $input.first().json.body;\nconst meta = body._meta || {};\n\n// Generate IDs\nconst zoneId = Math.random().toString(36).substr(2, 8);\nconst accessCode = `ACCESS-${Math.random().toString(36).substr(2, 8).toUpperCase()}`;\nconst now = new Date();\nconst expiresAt = new Date(now.getTime() + (body.ttlMinutes || 60) * 60 * 1000);\n\n// Build zone object\nconst zone = {\n  zoneId,\n  accessCode,\n  name: body.name || 'Unnamed Zone',\n  description: body.description || '',\n  accessType: body.accessType || 'read',\n  allowedPaths: body.allowedPaths || [],\n  notes: body.notes || [],\n  noteCount: (body.notes || []).length,\n  expiresAt: expiresAt.toISOString(),\n  createdAt: now.toISOString(),\n  createdBy: 'owner',\n};\n\n// Prepare MinIO upload data\nconst minioData = {\n  endpoint: meta.minioEndpoint || $env.MINIO_ENDPOINT,\n  bucket: meta.minioBucket || $env.MINIO_BUCKET,\n  accessKey: meta.minioAccessKey || $env.MINIO_ACCESS_KEY,\n  secretKey: meta.minioSecretKey || $env.MINIO_SECRET_KEY,\n};\n\nreturn {\n  zone,\n  minioData,\n  ttlSeconds: (body.ttlMinutes || 60) * 60,\n  createNotebookLM: body.createNotebookLM || false,\n  notebookTitle: body.notebookTitle || body.name,\n  notebookLMBaseUrl: meta.notebookLMBaseUrl || $env.NOTEBOOKLM_BASE_URL,\n  host: meta.host || 'localhost',\n};"
+      },
+      "id": "code-prepare",
+      "name": "Prepare Zone",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "={{ 'zone:' + $json.zone.zoneId }}",
+        "value": "={{ JSON.stringify($json.zone) }}",
+        "expire": true,
+        "ttl": "={{ $json.ttlSeconds }}"
+      },
+      "id": "redis-save-zone",
+      "name": "Save Zone to Redis",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [650, 300],
+      "credentials": {
+        "redis": {
+          "id": "redis-1",
+          "name": "Redis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "key": "zones:index"
+      },
+      "id": "redis-get-index",
+      "name": "Get Zones Index",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [850, 300],
+      "credentials": {
+        "redis": {
+          "id": "redis-1",
+          "name": "Redis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Update zones index\nconst prevData = $('Get Zones Index').first();\nconst zoneData = $('Prepare Zone').first().json;\n\nlet index = [];\ntry {\n  if (prevData.json && typeof prevData.json === 'string') {\n    index = JSON.parse(prevData.json);\n  } else if (Array.isArray(prevData.json)) {\n    index = prevData.json;\n  }\n} catch (e) {\n  index = [];\n}\n\nindex.push(zoneData.zone.zoneId);\n\nreturn {\n  index: JSON.stringify(index),\n  zone: zoneData.zone,\n  minioData: zoneData.minioData,\n  createNotebookLM: zoneData.createNotebookLM,\n  notebookTitle: zoneData.notebookTitle,\n  notebookLMBaseUrl: zoneData.notebookLMBaseUrl,\n  host: zoneData.host,\n};"
+      },
+      "id": "code-update-index",
+      "name": "Update Index",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "operation": "set",
+        "key": "zones:index",
+        "value": "={{ $json.index }}"
+      },
+      "id": "redis-save-index",
+      "name": "Save Index",
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [1250, 300],
+      "credentials": {
+        "redis": {
+          "id": "redis-1",
+          "name": "Redis"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Build response\nconst data = $('Update Index').first().json;\nconst zone = data.zone;\nconst host = data.host;\n\nconst response = {\n  success: true,\n  zoneId: zone.zoneId,\n  accessCode: zone.accessCode,\n  zoneUrl: `https://${host.replace('api.', '')}/zone/${zone.zoneId}`,\n  expiresAt: zone.expiresAt,\n  noteCount: zone.noteCount,\n};\n\nreturn response;"
+      },
+      "id": "code-response",
+      "name": "Build Response",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify($json) }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "id": "respond",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [1650, 300]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Prepare Zone",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Prepare Zone": {
+      "main": [
+        [
+          {
+            "node": "Save Zone to Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Zone to Redis": {
+      "main": [
+        [
+          {
+            "node": "Get Zones Index",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Zones Index": {
+      "main": [
+        [
+          {
+            "node": "Update Index",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update Index": {
+      "main": [
+        [
+          {
+            "node": "Save Index",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Save Index": {
+      "main": [
+        [
+          {
+            "node": "Build Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Response": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true,
+    "saveDataSuccessExecution": "all"
+  },
+  "staticData": null,
+  "tags": [
+    {
+      "name": "garden-api"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2026-02-02T10:00:00.000Z",
+  "versionId": "1"
+}

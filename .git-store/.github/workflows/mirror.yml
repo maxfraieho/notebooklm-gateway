@@ -1,0 +1,83 @@
+name: Mirror Repository to Target
+
+# Тригери для автоматичного дзеркалювання
+on:
+  push:
+    branches:
+      - '**'  # Всі гілки
+    tags:
+      - '**'  # Всі теги
+  delete:
+    branches:
+      - '**'
+    tags:
+      - '**'
+  create:
+    branches:
+      - '**'
+    tags:
+      - '**'
+  # Можливість запустити вручну
+  workflow_dispatch:
+
+# Запобігання паралельному виконанню декількох задач дзеркалювання
+concurrency:
+  group: git-mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    name: Mirror to target repository
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Отримати всю історію для дзеркалювання
+
+      - name: Setup SSH
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          # Створення директорії .ssh
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          # Додавання приватного ключа
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+
+          # Додавання known_hosts для GitHub
+          echo "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+          # Налаштування SSH для використання правильного ключа
+          cat > ~/.ssh/config <<EOF
+          Host github.com
+            HostName github.com
+            User git
+            IdentityFile ~/.ssh/id_ed25519
+            StrictHostKeyChecking yes
+          EOF
+          chmod 600 ~/.ssh/config
+
+          # Перевірка підключення
+          ssh -T git@github.com || true
+
+      - name: Mirror to garden-bloom (Cloudflare Pages)
+        run: |
+          # Target: garden-bloom (використовується Cloudflare Pages)
+          git remote add mirror git@github.com:maxfraieho/garden-bloom.git
+
+          # Дзеркалювання всіх гілок, тегів, refs
+          git push --mirror mirror
+
+          echo "✅ project-genesis → garden-bloom mirrored successfully"
+
+      - name: Cleanup
+        if: always()
+        run: |
+          # Видалення чутливих даних
+          rm -rf ~/.ssh

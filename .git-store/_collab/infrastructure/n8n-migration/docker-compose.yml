@@ -1,0 +1,120 @@
+# Garden API Stack - Production
+# Includes: Adapter + Redis + n8n
+
+version: '3.8'
+
+services:
+  # ============================================
+  # Redis (KV Storage)
+  # ============================================
+  redis:
+    image: redis:7-alpine
+    container_name: garden-redis
+    restart: unless-stopped
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - garden-network
+
+  # ============================================
+  # n8n (Workflow Automation)
+  # ============================================
+  n8n:
+    image: n8nio/n8n:latest
+    container_name: garden-n8n
+    restart: unless-stopped
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=${N8N_USER:-admin}
+      - N8N_BASIC_AUTH_PASSWORD=${N8N_PASSWORD:-changeme}
+      - N8N_HOST=${N8N_HOST:-localhost}
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://n8n:5678/
+      - GENERIC_TIMEZONE=Europe/Kiev
+      # Garden API env vars (for workflows)
+      - MINIO_ENDPOINT=${MINIO_ENDPOINT}
+      - MINIO_BUCKET=${MINIO_BUCKET}
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+      - NOTEBOOKLM_BASE_URL=${NOTEBOOKLM_BASE_URL:-https://notebooklm-gateway.replit.app}
+    volumes:
+      - n8n-data:/home/node/.n8n
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - garden-network
+
+  # ============================================
+  # Garden API Adapter (Node.js)
+  # ============================================
+  adapter:
+    build:
+      context: ./adapter
+      dockerfile: Dockerfile
+    container_name: garden-adapter
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+      - JWT_SECRET=${JWT_SECRET}
+      - REDIS_URL=redis://redis:6379
+      - N8N_BASE_URL=http://n8n:5678
+      - MINIO_ENDPOINT=${MINIO_ENDPOINT}
+      - MINIO_BUCKET=${MINIO_BUCKET}
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+      - NOTEBOOKLM_BASE_URL=${NOTEBOOKLM_BASE_URL:-https://notebooklm-gateway.replit.app}
+      - NOTEBOOKLM_TIMEOUT_MS=${NOTEBOOKLM_TIMEOUT_MS:-15000}
+    depends_on:
+      redis:
+        condition: service_healthy
+      n8n:
+        condition: service_started
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 10s
+      retries: 3
+    networks:
+      - garden-network
+
+  # ============================================
+  # Nginx Reverse Proxy (optional)
+  # ============================================
+  nginx:
+    image: nginx:alpine
+    container_name: garden-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - adapter
+    networks:
+      - garden-network
+    profiles:
+      - proxy
+
+volumes:
+  redis-data:
+  n8n-data:
+
+networks:
+  garden-network:
+    driver: bridge

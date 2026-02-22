@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Digital Garden Design System - Warm, readable, knowledge-focused */
+/* Adopted from new_desijn/ design reference */
+
+@layer base {
+  :root {
+    /* Digital Garden Light Theme - Clean White Background */
+    --garden-white: 0 0% 100%;
+    --garden-cream: 0 0% 100%;
+    --garden-paper: 0 0% 100%;
+    --garden-forest: 174 62% 36%;
+    --garden-teal: 183 55% 55%;
+    --garden-text: 180 6% 16%;
+    --garden-muted-text: 180 5% 42%;
+    --garden-border-color: 0 0% 91%;
+
+    /* Standard tokens */
+    --background: var(--garden-white);
+    --foreground: var(--garden-text);
+
+    --card: var(--garden-white);
+    --card-foreground: var(--garden-text);
+
+    --popover: var(--garden-white);
+    --popover-foreground: var(--garden-text);
+
+    /* Forest green primary for links */
+    --primary: var(--garden-forest);
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: var(--garden-text);
+
+    --muted: 0 0% 96%;
+    --muted-foreground: var(--garden-muted-text);
+
+    /* Warm amber accent */
+    --accent: 38 90% 55%;
+    --accent-foreground: var(--garden-text);
+
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: var(--garden-border-color);
+    --input: var(--garden-border-color);
+    --ring: var(--garden-forest);
+
+    --radius: 0.5rem;
+
+    /* Link states */
+    --link: var(--garden-forest);
+    --link-hover: 174 68% 28%;
+    --link-broken: 180 5% 55%;
+    --link-broken-bg: 0 0% 96%;
+
+    /* Typography */
+    --font-serif: 'Lora', Georgia, serif;
+    --font-sans: 'Inter', system-ui, sans-serif;
+
+    /* Sidebar */
+    --sidebar-background: var(--garden-white);
+    --sidebar-foreground: var(--garden-text);
+    --sidebar-primary: var(--garden-forest);
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: var(--garden-text);
+    --sidebar-border: var(--garden-border-color);
+    --sidebar-ring: var(--garden-forest);
+
+    /* Chart colors */
+    --chart-1: var(--garden-forest);
+    --chart-2: var(--garden-teal);
+    --chart-3: 180 50% 45%;
+    --chart-4: 120 35% 40%;
+    --chart-5: 60 50% 45%;
+  }
+
+  .dark {
+    /* Digital Garden Dark Theme - Charcoal with Teal */
+    --garden-charcoal: 220 15% 12%;
+    --garden-dark-paper: 220 12% 16%;
+    --garden-teal: 190 55% 50%;
+    --garden-light-text: 220 20% 88%;
+    --garden-muted-text: 220 12% 55%;
+    --garden-border-color: 220 10% 22%;
+
+    /* Standard tokens */
+    --background: var(--garden-charcoal);
+    --foreground: var(--garden-light-text);
+
+    --card: var(--garden-dark-paper);
+    --card-foreground: var(--garden-light-text);
+
+    --popover: var(--garden-dark-paper);
+    --popover-foreground: var(--garden-light-text);
+
+    --primary: var(--garden-teal);
+    --primary-foreground: var(--garden-charcoal);
+
+    --secondary: 220 10% 20%;
+    --secondary-foreground: var(--garden-light-text);
+
+    --muted: 220 10% 20%;
+    --muted-foreground: var(--garden-muted-text);
+
+    --accent: 38 80% 55%;
+    --accent-foreground: var(--garden-charcoal);
+
+    --destructive: 0 60% 45%;
+    --destructive-foreground: var(--garden-light-text);
+
+    --border: var(--garden-border-color);
+    --input: var(--garden-border-color);
+    --ring: var(--garden-teal);
+
+    --link: 190 60% 55%;
+    --link-hover: 190 65% 65%;
+    --link-broken: 220 10% 50%;
+    --link-broken-bg: 220 10% 18%;
+
+    /* Sidebar */
+    --sidebar-background: var(--garden-dark-paper);
+    --sidebar-foreground: var(--garden-light-text);
+    --sidebar-primary: var(--garden-teal);
+    --sidebar-primary-foreground: var(--garden-charcoal);
+    --sidebar-accent: 220 10% 20%;
+    --sidebar-accent-foreground: var(--garden-light-text);
+    --sidebar-border: var(--garden-border-color);
+    --sidebar-ring: var(--garden-teal);
+
+    /* Chart colors */
+    --chart-1: var(--garden-teal);
+    --chart-2: 38 80% 55%;
+    --chart-3: 180 50% 50%;
+    --chart-4: 120 35% 45%;
+    --chart-5: 60 50% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-serif);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Internal wiki link styling */
+  .wiki-link {
+    @apply text-primary underline decoration-primary/30 underline-offset-2 
+           hover:text-primary/80 hover:decoration-primary/50 transition-colors;
+  }
+
+  .wiki-link-broken {
+    @apply text-muted-foreground no-underline bg-muted/50 px-1 py-0.5 rounded
+           border border-dashed border-muted-foreground/30;
+  }
+
+  /* Prose styling for markdown content */
+  .prose-garden {
+    @apply leading-relaxed;
+  }
+
+  .prose-garden h1 {
+    @apply text-3xl md:text-4xl mb-6 mt-8 text-foreground;
+  }
+
+  .prose-garden h2 {
+    @apply text-2xl md:text-2xl mb-4 mt-8 text-foreground border-b border-border pb-2;
+  }
+
+  .prose-garden h3 {
+    @apply text-xl mb-3 mt-6 text-foreground;
+  }
+
+  .prose-garden p {
+    @apply mb-4 text-foreground/90;
+  }
+
+  .prose-garden ul, .prose-garden ol {
+    @apply mb-4 pl-6;
+  }
+
+  .prose-garden li {
+    @apply mb-1;
+  }
+
+  .prose-garden blockquote {
+    @apply border-l-4 border-accent pl-4 italic my-4 text-muted-foreground;
+  }
+
+  .prose-garden code {
+    @apply bg-muted px-1.5 py-0.5 rounded text-sm font-mono;
+  }
+
+  .prose-garden pre {
+    @apply bg-muted p-4 rounded-lg overflow-x-auto my-4;
+  }
+
+  .prose-garden pre code {
+    @apply bg-transparent p-0;
+  }
+
+  .prose-garden hr {
+    @apply border-border my-8;
+  }
+
+  .prose-garden a:not(.wiki-link):not(.wiki-link-broken) {
+    @apply text-primary underline decoration-primary/30 underline-offset-2 
+           hover:text-primary/80 hover:decoration-primary/50 transition-colors;
+  }
+
+  /* Search highlight styling */
+  .search-highlight {
+    @apply transition-all duration-300;
+    animation: highlight-pulse 2s ease-in-out;
+  }
+
+  @keyframes highlight-pulse {
+    0%, 100% {
+      background-color: hsl(var(--primary) / 0.3);
+    }
+    50% {
+      background-color: hsl(var(--accent) / 0.5);
+    }
+  }
+
+  /* Custom animations */
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-highlight-pulse {
+    animation: highlight-pulse-bg 1s ease-in-out;
+  }
+
+  @keyframes highlight-pulse-bg {
+    0%, 100% {
+      background-color: transparent;
+    }
+    50% {
+      background-color: hsl(var(--accent) / 0.3);
+    }
+  }
+}
+
+/* DrakonWidget container isolation */
+.drakon-container {
+  isolation: isolate;
+  position: relative;
+  font: 14px Arial, sans-serif;
+  line-height: 1.3;
+  contain: layout style;
+  background: hsl(var(--background));
+}
+
+.drakon-container * {
+  box-sizing: content-box;
+}
+
+.drakon-container canvas {
+  display: block;
+}
+
+.drakon-container .icon-container em {
+  font-style: italic;
+}
+
+.drakon-container .icon-container strong {
+  font-weight: bold;
+}

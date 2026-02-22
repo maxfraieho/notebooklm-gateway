@@ -1,0 +1,2590 @@
+{
+  "contract_version": "1.1",
+  "generated": "2026-02-22T09:59:53Z",
+  "node_count": 53,
+  "edge_count": 296,
+  "nodes": [
+    {
+      "slug": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "title": "ІНДЕКС"
+    },
+    {
+      "slug": "exodus.pp.ua%2F%D0%90%D0%A3%D0%94%D0%86%D0%9E_%D0%9F%D0%A0%D0%9E%D0%9C%D0%9F%D0%A2_NOTEBOOKLM",
+      "title": "АУДІО ПРОМПТ NOTEBOOKLM"
+    },
+    {
+      "slug": "exodus.pp.ua%2F%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%2F%D0%91%D0%B0%D0%B6%D0%B0%D0%BD%D1%96%20%D0%BF%D0%BE%D0%BA%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%BD%D1%8F%20UX-UI",
+      "title": "Бажані покращення UX-UI"
+    },
+    {
+      "slug": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "title": "КАРТА СИСТЕМИ"
+    },
+    {
+      "slug": "exodus.pp.ua%2F%D0%9F%D1%80%D0%BE%D0%BC%D1%82%D0%B8%2F%D0%90%D1%80%D1%85%D1%96%D1%82%D0%B5%D0%BA%D1%82%D0%BE%D1%80%2F%D0%9D%D0%9E%D0%A0%D0%9C%D0%90%D0%9B%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF%20%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%9E%D0%87%20%D0%94%D0%9E%D0%9A%D0%A3%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%86%D0%87%20%D0%A2%D0%90%20%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF%20%D0%A1%D0%A2%D0%90%D0%A2%D0%95%D0%99%20%D0%86%D0%97%20DIGITAL%20GARDEN",
+      "title": "Без назви"
+    },
+    {
+      "slug": "exodus.pp.ua%2F%D0%A4%D1%80%D0%B5%D0%B9%D0%BC%D0%B2%D0%BE%D1%80%D0%BA%D0%B8%2FMastra%2F%D0%9F%D1%80%D0%BE%20Mastra",
+      "title": "Про Mastra"
+    },
+    {
+      "slug": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "title": "PROJECT DESCRIPTION CANONICAL"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "title": "КАРТА ГРАФУ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "title": "АБСТРАКЦІЯ РІВНЯ ОРКЕСТРАЦІЇ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "title": "КАНОНІЧНА АРХІТЕКТУРА ВИКОНАННЯ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "title": "КАНОНІЧНА МОДЕЛЬ АВТОРИТЕТУ СХОВИЩА"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "title": "КАНОНІЧНИЙ КОНВЕЄР ВИКОНАННЯ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "title": "КАНОНІЧНИЙ ЦИКЛ ЗАПУСКУ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "title": "КОНТРАКТ АГЕНТА V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "title": "INBOX ТА PROPOSAL АРХІТЕКТУРА"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "title": "ВЕРСІОНУВАННЯ ЛОГІКИ АГЕНТА V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "title": "ПАМ ЯТЬ АГЕНТА GIT DIFFMEM V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "title": "ADR ФЕДЕРАТИВНА СИСТЕМА КОМЕНТАРІВ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "title": "DRAKON ІНТЕГРАЦІЯ ТА МОДЕЛЬ ВИКОНАННЯ АГЕНТА"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "title": "АРХІТЕКТУРНИЙ КОРІНЬ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "title": "ІНВАРІАНТИ ГРАФУ ЗНАНЬ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "title": "КАНОНІЗАЦІЯ МОВИ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "title": "КАНОНІЧНА СИСТЕМА ТЕГУВАННЯ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "title": "КАНОНІЧНИЙ МЕТОД МУЛЬТИАГЕНТНОЇ РОЗРОБКИ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "title": "РОЛЬ ОРКЕСТРАТОРА"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "title": "БЕЗПЕКА СИСТЕМИ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%90%D0%A0%D0%A2%D0%9E%D0%A1%D0%A2%D0%86",
+      "title": "МОДЕЛЬ ВАРТОСТІ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "title": "МОДЕЛЬ МАСШТАБУВАННЯ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "title": "МОДЕЛЬ НАДІЙНОСТІ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "title": "МОДЕЛЬ ПРОДУКТИВНОСТІ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "title": "МОДЕЛЬ СПОСТЕРЕЖУВАНОСТІ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "title": "КОНТРАКТИ API V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "title": "АНАЛІЗ ПРОЕКТУ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fdrakon%2F%D0%92%D0%98%D0%91%D0%86%D0%A0_%D0%9D%D0%90%D0%92%D0%98%D0%A7%D0%9E%D0%9A_CLAUDE",
+      "title": "ВИБІР НАВИЧОК CLAUDE"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fdrakon%2F%D0%94%D0%9E%D0%A1%D0%9B%D0%86%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_DRAKONWIDGET",
+      "title": "ДОСЛІДЖЕННЯ DRAKONWIDGET"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "title": "СТРАТЕГІЯ ІНТЕГРАЦІЇ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "title": "ДИРЕКТИВА УЗГОДЖЕННЯ FRONTEND V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Ffrontend%2F%D0%9F%D0%9B%D0%90%D0%9D_%D0%9C%D0%86%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87_FRONTEND_V1",
+      "title": "ПЛАН МІГРАЦІЇ FRONTEND V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "title": "LOVABLE УЗГОДЖЕННЯ З АРХІТЕКТУРОЮ ВИКОНАННЯ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "title": "ГЛОСАРІЙ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "title": "МАНІФЕСТ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2_%D0%A0%D0%9E%D0%97%D0%A8%D0%98%D0%A0%D0%95%D0%9D%D0%98%D0%99",
+      "title": "МАНІФЕСТ РОЗШИРЕНИЙ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "title": "ФІЛОСОФІЯ ВСЕ Є АГЕНТОМ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%92%D0%95%D0%9D%D0%A2%D0%90%D0%A0_%D0%94%D0%9E%D0%9A%D0%A3%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%86%D0%87",
+      "title": "ІНВЕНТАР ДОКУМЕНТАЦІЇ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%98_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "title": "ІНДЕКС АРХІТЕКТУРИ ВИКОНАННЯ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "title": "ПРОТОКОЛ АРХІТЕКТОРА"
+    },
+    {
+      "slug": "exodus.pp.ua%2Foperations%2F%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_PROPOSAL_V1",
+      "title": "СИСТЕМА PROPOSAL V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Foperations%2FINBOX_%D0%A2%D0%90_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3_V1",
+      "title": "INBOX ТА ЦИКЛ ЗАПУСКУ V1"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fproduct%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%A3",
+      "title": "МОДЕЛЬ ДОСТУПУ"
+    },
+    {
+      "slug": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "title": "СТРАТЕГІЯ ПРОДУКТУ"
+    },
+    {
+      "slug": "violin.pp.ua%2F%D0%9F%D1%80%D0%BE",
+      "title": "Про"
+    },
+    {
+      "slug": "violin.pp.ua%2F%D0%9F%D1%80%D0%BE%20%D1%81%D0%B0%D0%B9%D1%82%20%D0%BF%D1%80%D0%BE%D1%94%D0%BA%D1%82%D1%83%20Sonate%20Solidaire",
+      "title": "Про сайт проєкту Sonate Solidaire"
+    },
+    {
+      "slug": "violin.pp.ua%2F%D0%A0%D0%B5%D0%B7%D1%8E%D0%BC%D0%B5",
+      "title": "Резюме"
+    }
+  ],
+  "edges": [
+    {
+      "source": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "target": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%90%D0%A3%D0%94%D0%86%D0%9E_%D0%9F%D0%A0%D0%9E%D0%9C%D0%9F%D0%A2_NOTEBOOKLM",
+      "target": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%90%D0%A0%D0%A2%D0%9E%D0%A1%D0%A2%D0%86",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2_%D0%A0%D0%9E%D0%97%D0%A8%D0%98%D0%A0%D0%95%D0%9D%D0%98%D0%99",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%92%D0%95%D0%9D%D0%A2%D0%90%D0%A0_%D0%94%D0%9E%D0%9A%D0%A3%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%86%D0%87",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%98_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_PROPOSAL_V1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Foperations%2FINBOX_%D0%A2%D0%90_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3_V1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Fproduct%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "target": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%92%D0%95%D0%9D%D0%A2%D0%90%D0%A0_%D0%94%D0%9E%D0%9A%D0%A3%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%86%D0%87",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "target": "exodus.pp.ua%2Foperations%2FINBOX_%D0%A2%D0%90_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_PROPOSAL_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%92%D0%98%D0%91%D0%86%D0%A0_%D0%9D%D0%90%D0%92%D0%98%D0%A7%D0%9E%D0%9A_CLAUDE",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%94%D0%9E%D0%A1%D0%9B%D0%86%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_DRAKONWIDGET",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%92%D0%95%D0%A0%D0%A1%D0%86%D0%9E%D0%9D%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF_%D0%9B%D0%9E%D0%93%D0%86%D0%9A%D0%98_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%98_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "target": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%92%D0%95%D0%9D%D0%A2%D0%90%D0%A0_%D0%94%D0%9E%D0%9A%D0%A3%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%97%D0%90%D0%A6%D0%86%D0%AF_%D0%9C%D0%9E%D0%92%D0%98",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%A2%D0%95%D0%93%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%9D%D0%92%D0%95%D0%84%D0%A0_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%A0%D0%9E%D0%9B%D0%AC_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "target": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%90%D0%A0%D0%A2%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%90%D0%A0%D0%A2%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%90%D0%A0%D0%A2%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%90%D0%A0%D0%A2%D0%9E%D0%A1%D0%A2%D0%86",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9D%D0%90%D0%94%D0%86%D0%99%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%90%D0%91%D0%A1%D0%A2%D0%A0%D0%90%D0%9A%D0%A6%D0%86%D0%AF_%D0%A0%D0%86%D0%92%D0%9D%D0%AF_%D0%9E%D0%A0%D0%9A%D0%95%D0%A1%D0%A2%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2F%D0%9F%D0%90%D0%9C_%D0%AF%D0%A2%D0%AC_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_GIT_DIFFMEM_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%98%D0%92%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%A1%D0%9F%D0%9E%D0%A1%D0%A2%D0%95%D0%A0%D0%95%D0%96%D0%A3%D0%92%D0%90%D0%9D%D0%9E%D0%A1%D0%A2%D0%86",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "target": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "target": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "target": "exodus.pp.ua%2Foperations%2FINBOX_%D0%A2%D0%90_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%90%D0%92%D0%A2%D0%9E%D0%A0%D0%98%D0%A2%D0%95%D0%A2%D0%A3_%D0%A1%D0%A5%D0%9E%D0%92%D0%98%D0%A9%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%94%D0%9E%D0%A1%D0%9B%D0%86%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_DRAKONWIDGET",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%92%D0%98%D0%91%D0%86%D0%A0_%D0%9D%D0%90%D0%92%D0%98%D0%A7%D0%9E%D0%9A_CLAUDE",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%92%D0%98%D0%91%D0%86%D0%A0_%D0%9D%D0%90%D0%92%D0%98%D0%A7%D0%9E%D0%9A_CLAUDE",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%94%D0%9E%D0%A1%D0%9B%D0%86%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_DRAKONWIDGET",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%94%D0%9E%D0%A1%D0%9B%D0%86%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_DRAKONWIDGET",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%94%D0%9E%D0%A1%D0%9B%D0%86%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_DRAKONWIDGET",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FDRAKON_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%AF_%D0%A2%D0%90_%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%90%D0%9D%D0%90%D0%9B%D0%86%D0%97_%D0%9F%D0%A0%D0%9E%D0%95%D0%9A%D0%A2%D0%A3",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%92%D0%98%D0%91%D0%86%D0%A0_%D0%9D%D0%90%D0%92%D0%98%D0%A7%D0%9E%D0%9A_CLAUDE",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fdrakon%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%86%D0%9D%D0%A2%D0%95%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Fdrakon%2F%D0%94%D0%9E%D0%A1%D0%9B%D0%86%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_DRAKONWIDGET",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "target": "exodus.pp.ua%2Ffrontend%2F%D0%9F%D0%9B%D0%90%D0%9D_%D0%9C%D0%86%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87_FRONTEND_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "target": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2F%D0%9F%D0%9B%D0%90%D0%9D_%D0%9C%D0%86%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87_FRONTEND_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2F%D0%9F%D0%9B%D0%90%D0%9D_%D0%9C%D0%86%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87_FRONTEND_V1",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2F%D0%9F%D0%9B%D0%90%D0%9D_%D0%9C%D0%86%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87_FRONTEND_V1",
+      "target": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Ffrontend%2F%D0%94%D0%98%D0%A0%D0%95%D0%9A%D0%A2%D0%98%D0%92%D0%90_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_FRONTEND_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Ffrontend%2FLOVABLE_%D0%A3%D0%97%D0%93%D0%9E%D0%94%D0%96%D0%95%D0%9D%D0%9D%D0%AF_%D0%97_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9E%D0%AE_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Ffrontend%2F%D0%9F%D0%9B%D0%90%D0%9D_%D0%9C%D0%86%D0%93%D0%A0%D0%90%D0%A6%D0%86%D0%87_FRONTEND_V1",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2_%D0%A0%D0%9E%D0%97%D0%A8%D0%98%D0%A0%D0%95%D0%9D%D0%98%D0%99",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2_%D0%A0%D0%9E%D0%97%D0%A8%D0%98%D0%A0%D0%95%D0%9D%D0%98%D0%99",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2_%D0%A0%D0%9E%D0%97%D0%A8%D0%98%D0%A0%D0%95%D0%9D%D0%98%D0%99",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2_%D0%A0%D0%9E%D0%97%D0%A8%D0%98%D0%A0%D0%95%D0%9D%D0%98%D0%99",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2_%D0%A0%D0%9E%D0%97%D0%A8%D0%98%D0%A0%D0%95%D0%9D%D0%98%D0%99",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%93%D0%9B%D0%9E%D0%A1%D0%90%D0%A0%D0%86%D0%99",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fmanifesto%2F%D0%A4%D0%86%D0%9B%D0%9E%D0%A1%D0%9E%D0%A4%D0%86%D0%AF_%D0%92%D0%A1%D0%95_%D0%84_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9E%D0%9C",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "semantic",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%92%D0%95%D0%9D%D0%A2%D0%90%D0%A0_%D0%94%D0%9E%D0%9A%D0%A3%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%92%D0%95%D0%9D%D0%A2%D0%90%D0%A0_%D0%94%D0%9E%D0%9A%D0%A3%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A6%D0%86%D0%87",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%98_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%98_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%86%D0%9D%D0%94%D0%95%D0%9A%D0%A1_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%98_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2F%D0%9A%D0%90%D0%A0%D0%A2%D0%90_%D0%93%D0%A0%D0%90%D0%A4%D0%A3",
+      "type": "structural",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%90_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90_%D0%92%D0%98%D0%9A%D0%9E%D0%9D%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%86%D0%9D%D0%92%D0%90%D0%A0%D0%86%D0%90%D0%9D%D0%A2%D0%98_%D0%93%D0%A0%D0%90%D0%A4%D0%A3_%D0%97%D0%9D%D0%90%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fgovernance%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%9C%D0%95%D0%A2%D0%9E%D0%94_%D0%9C%D0%A3%D0%9B%D0%AC%D0%A2%D0%98%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%9D%D0%9E%D0%87_%D0%A0%D0%9E%D0%97%D0%A0%D0%9E%D0%91%D0%9A%D0%98",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%9C%D0%90%D0%A1%D0%A8%D0%A2%D0%90%D0%91%D0%A3%D0%92%D0%90%D0%9D%D0%9D%D0%AF",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%9F%D0%A0%D0%9E%D0%A2%D0%9E%D0%9A%D0%9E%D0%9B_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%9E%D0%A0%D0%90",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_PROPOSAL_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2F%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_PROPOSAL_V1",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2FINBOX_%D0%A2%D0%90_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%90%D0%9D%D0%9E%D0%9D%D0%86%D0%A7%D0%9D%D0%98%D0%99_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Foperations%2FINBOX_%D0%A2%D0%90_%D0%A6%D0%98%D0%9A%D0%9B_%D0%97%D0%90%D0%9F%D0%A3%D0%A1%D0%9A%D0%A3_V1",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffeatures%2FADR_%D0%A4%D0%95%D0%94%D0%95%D0%A0%D0%90%D0%A2%D0%98%D0%92%D0%9D%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%90_%D0%9A%D0%9E%D0%9C%D0%95%D0%9D%D0%A2%D0%90%D0%A0%D0%86%D0%92",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fnon-functional%2F%D0%91%D0%95%D0%97%D0%9F%D0%95%D0%9A%D0%90_%D0%A1%D0%98%D0%A1%D0%A2%D0%95%D0%9C%D0%98",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%9C%D0%9E%D0%94%D0%95%D0%9B%D0%AC_%D0%94%D0%9E%D0%A1%D0%A2%D0%A3%D0%9F%D0%A3",
+      "target": "exodus.pp.ua%2Fbackend%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2%D0%98_API_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2FPROJECT_DESCRIPTION_CANONICAL",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2F%D0%9A%D0%9E%D0%9D%D0%A2%D0%A0%D0%90%D0%9A%D0%A2_%D0%90%D0%93%D0%95%D0%9D%D0%A2%D0%90_V1",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Fcore%2FINBOX_%D0%A2%D0%90_PROPOSAL_%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%90",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Farchitecture%2Ffoundation%2F%D0%90%D0%A0%D0%A5%D0%86%D0%A2%D0%95%D0%9A%D0%A2%D0%A3%D0%A0%D0%9D%D0%98%D0%99_%D0%9A%D0%9E%D0%A0%D0%86%D0%9D%D0%AC",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    },
+    {
+      "source": "exodus.pp.ua%2Fproduct%2F%D0%A1%D0%A2%D0%A0%D0%90%D0%A2%D0%95%D0%93%D0%86%D0%AF_%D0%9F%D0%A0%D0%9E%D0%94%D0%A3%D0%9A%D0%A2%D0%A3",
+      "target": "exodus.pp.ua%2Fmanifesto%2F%D0%9C%D0%90%D0%9D%D0%86%D0%A4%D0%95%D0%A1%D0%A2",
+      "type": "navigational",
+      "weight": 1.0,
+      "importance": null,
+      "defaultVisible": true
+    }
+  ]
+}

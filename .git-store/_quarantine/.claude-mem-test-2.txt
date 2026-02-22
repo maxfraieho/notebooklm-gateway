@@ -1,0 +1,14 @@
+Claude-Mem Real Test
+===================
+
+Date: 2026-01-18 07:35
+Session: CURRENT (testing PostToolUse hook)
+
+SECRET WORD: BANANA-ROCKET-2026
+
+If this observation is created, the database should have:
+- Project: garden-bloom
+- Type: tool_use (або change)
+- Text containing: BANANA-ROCKET-2026
+
+This tests if PostToolUse hook works in THIS session.

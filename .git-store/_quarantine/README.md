@@ -1,0 +1,1 @@
+This folder contains non-frontend and legacy artifacts moved from the frontend repository during architectural cleanup. These files are preserved for safety and history but are not part of the frontend runtime.
